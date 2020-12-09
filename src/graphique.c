@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <MLV/MLV_all.h>
+#include "threetogo.h"
 #include "graphique.h"
 
 
@@ -18,7 +19,7 @@ void window_open(int larg, int haut) {
 	MLV_actualise_window();
 }
 
-void token_draw(struct token t, Case c) {
+void token_draw(Tokens t, Case c) {
 	
 	MLV_Color couleurs[4] = { MLV_COLOR_RED, 
 							MLV_COLOR_GREEN, 
@@ -67,14 +68,3 @@ void token_draw_list(Tokens lst_tokens, int nb_tokens, Case cible) {
 		token_draw(lst_tokens.suivant[i], cible);
 	}
 }
-
-
-
-
-
-
-
-
-
-
-

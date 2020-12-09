@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <MLV/MLV_all.h>
 #include "threetogo.h"
+#include "graphique.h"
 
 /*---------------------A METTRE DANS moteur.c !!!---------------------*/
 
