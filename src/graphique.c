@@ -19,7 +19,7 @@ void window_open(int larg, int haut) {
 	MLV_actualise_window();
 }
 
-void token_draw(Tokens t, Case c) {
+void token_draw(Token t, Case c) {
 	
 	MLV_Color couleurs[4] = { MLV_COLOR_RED, 
 							MLV_COLOR_GREEN, 
@@ -58,7 +58,7 @@ void token_draw(Tokens t, Case c) {
 }
 
 
-void token_draw_list(Tokens lst_tokens, int nb_tokens, Case cible) {
+void token_draw_list(Token lst_tokens, int nb_tokens, Case cible) {
 	
 	token_draw(lst_tokens, cible);
 	

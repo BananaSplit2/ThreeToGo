@@ -8,7 +8,7 @@
 
 #include <time.h>
 
-int token_create_list(Tokens* lst_tokens, int nb_tokens) {
+int token_create_list(Token* lst_tokens, int nb_tokens) {
 	
 	srand(time(NULL));
 	
@@ -38,7 +38,7 @@ int main(void) {
 	int mousex, mousey;
 	Case cible = {1, 1};
 	
-	Tokens lst_tokens;
+	Token lst_tokens;
 	token_create_list(&lst_tokens, nb_tokens);
 	
 	nb_tokens = 0;
