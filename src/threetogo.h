@@ -11,13 +11,16 @@
 /**
  * Représente une forme avec sa couleur et sa forme
  * Les formes peuvent être chainées entres elles
+ * 
+ * Le type Liste représente le chainage simple circulaire.
+ * Il pointe vers le dernier élément de la liste
  */
 typedef struct token{
-    int couleur;
-    int forme;
-    struct token* suivant;
-    struct token* suivant_couleur;
-    struct token* precedent_couleur;
-    struct token* suivant_forme;
-    struct token* precedent_forme;
+    int color;
+    int shape;
+    struct token* next;
+    struct token* next_color;
+    struct token* previous_color;
+    struct token* next_shape;
+    struct token* previous_shape;
 }Token, *Liste;

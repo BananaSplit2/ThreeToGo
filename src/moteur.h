@@ -1,36 +1,53 @@
 /** 
  * Effectue l'allocation mémoire d'un token et renvoie son adresse
- * @param couleur Couleur du token
- * @param forme Forme du token
+ * @param color Couleur du token
+ * @param shape Forme du token
  * @return adresse du token alloué, NULL si échec
  */
-Token *alloc_token(int couleur, int forme);
-
-/** 
- * Initialise une liste de tokens avec un token initial
- * @param single adresse du token qui initialisera la liste
- * @return liste initialisée
- */
-Liste create_liste(Token *single);
+Token *alloc_token(int color, int shape);
 
 /**
- * Renvoie l'adresse du dernier token de la liste
- * (avant d'avoir fait un tour complet de la liste)
- * @param liste liste dont il faut trouver le dernier token
- * @return adresse du dernier token de la liste
+ * Affiche le contenu d'une liste de tokens dans le terminal
+ * @param tokens Liste de tokens
  */
-Token *find_tail(Liste liste);
+void print_tokens(Liste tokens);
+
+/**
+ * Renvoie le prochain token de la même forme dans la liste
+ * @param token
+ * @return adresse du token suivant de la même forme
+ */
+Token *next_shape(Token *token);
+
+/**
+ * Renvoie le prochain token de la même couleur dans la liste
+ * @param token
+ * @return adresse du token suivant de la même couleur
+ */
+Token *next_color(Token *token);
+
+/**
+ * Met à jour le double chainage des formes au niveau du token
+ * @param token
+ */
+void update_shape_links(Token *token);
+
+/**
+ * Met à jour le double chainage des couleurs au niveau du token
+ * @param token
+ */
+void update_color_links(Token *token);
 
 /**
  * Attache un token en première position d'une liste
- * @param single adresse du token à rajouter
+ * @param source adresse du token à rajouter
  * @param liste adresse de la liste à laquelle rajouter le token
  */
-void attach_to_head(Token *single, Liste *liste);
+void attach_to_head(Liste *liste, Token *source);
 
 /**
  * Attache un token en dernière position d'une liste
- * @param single adresse du token à rajouter
+ * @param source adresse du token à rajouter
  * @param liste adresse de la liste à laquelle rajouter le token
  */
-void attach_to_tail(Token *single, Liste *liste);
+void attach_to_tail(Liste *liste, Token *source);

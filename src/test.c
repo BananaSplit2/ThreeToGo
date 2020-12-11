@@ -4,18 +4,33 @@
 #include "moteur.h"
 
 int main(void) {
-    Token* token_1 = alloc_token(RED, 0);
-    Token* token_2 = alloc_token(GREEN, 0);
-    Token* token_3 = alloc_token(BLUE, 0);
+    Liste tokens = NULL;
 
-    Liste tokens = create_liste(token_1);
-    attach_to_tail(token_2, &tokens);
-    attach_to_tail(token_3, &tokens);
+    Token* tok_1 = alloc_token(RED, TRIANGLE);
+    Token* tok_2 = alloc_token(GREEN, TRIANGLE);
+    Token* tok_3 = alloc_token(BLUE, SQUARE);
+    Token* tok_4 = alloc_token(RED, CIRCLE);
+    Token* tok_5 = alloc_token(GREEN, SQUARE);
+    Token* tok_6 = alloc_token(GREEN, CIRCLE);
+    Token* tok_7 = alloc_token(BLUE, TRIANGLE);
+    Token* tok_8 = alloc_token(BLUE, DIAMOND);
+    
+    attach_to_tail(&tokens, tok_1);
+    attach_to_tail(&tokens, tok_2);
+    attach_to_tail(&tokens, tok_3);
+    attach_to_tail(&tokens, tok_4);
+    attach_to_tail(&tokens, tok_5);
+    attach_to_tail(&tokens, tok_6);
+    attach_to_tail(&tokens, tok_7);
+    attach_to_tail(&tokens, tok_8);
 
-    printf("Couleur token 1 : %d\n", tokens->couleur);
-    printf("Couleur token 2 : %d\n", tokens->suivant->couleur);
-    printf("Couleur token 3 : %d\n", tokens->suivant->suivant->couleur);
-    printf("Couleur token 1 : %d\n", tokens->suivant->suivant->suivant->couleur);
+    print_tokens(tokens);
+
+    printf("(%d, %d) -> ", tok_1->color, tok_1->shape);
+    printf("(%d, %d) -> ", tok_1->previous_shape->color, tok_1->previous_shape->shape);
+    printf("(%d, %d) -> ", tok_1->previous_shape->previous_shape->color, tok_1->previous_shape->previous_shape->shape);
+    printf("(%d, %d) -> ", tok_1->previous_shape->previous_shape->previous_shape->color, tok_1->previous_shape->previous_shape->previous_shape->shape);
+    printf("\n");
 
     return 0;
 }
