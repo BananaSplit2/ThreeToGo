@@ -1,36 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "threetogo.h"
-#include "moteur.h"
+#include "token.h"
+#include "ascii.h"
+
+void createRandom(Liste *lst, int n) {
+    int i;
+    for (i = 0 ; i < n ; i++) {
+        Token *tok = alloc_token(rand()%4, rand()%4);
+        attach_to_tail(lst, tok);
+    }
+}
 
 int main(void) {
+    srand(time(NULL));
     Liste tokens = NULL;
 
-    Token* tok_1 = alloc_token(RED, TRIANGLE);
-    Token* tok_2 = alloc_token(GREEN, TRIANGLE);
-    Token* tok_3 = alloc_token(BLUE, SQUARE);
-    Token* tok_4 = alloc_token(RED, CIRCLE);
-    Token* tok_5 = alloc_token(GREEN, SQUARE);
-    Token* tok_6 = alloc_token(GREEN, CIRCLE);
-    Token* tok_7 = alloc_token(BLUE, TRIANGLE);
-    Token* tok_8 = alloc_token(BLUE, DIAMOND);
-    
-    attach_to_tail(&tokens, tok_1);
-    attach_to_tail(&tokens, tok_2);
-    attach_to_tail(&tokens, tok_3);
-    attach_to_tail(&tokens, tok_4);
-    attach_to_tail(&tokens, tok_5);
-    attach_to_tail(&tokens, tok_6);
-    attach_to_tail(&tokens, tok_7);
-    attach_to_tail(&tokens, tok_8);
+    createRandom(&tokens, 4);
 
     print_tokens(tokens);
 
-    printf("(%d, %d) -> ", tok_1->color, tok_1->shape);
-    printf("(%d, %d) -> ", tok_1->previous_shape->color, tok_1->previous_shape->shape);
-    printf("(%d, %d) -> ", tok_1->previous_shape->previous_shape->color, tok_1->previous_shape->previous_shape->shape);
-    printf("(%d, %d) -> ", tok_1->previous_shape->previous_shape->previous_shape->color, tok_1->previous_shape->previous_shape->previous_shape->shape);
-    printf("\n");
+    printf("Chainage vert : ");
+    print_colorlinks(tokens, GREEN);
+
+    printf("\n apres permutation premier et dernier \n");
+    swap(&tokens, tokens, tokens->next);
+
+    print_tokens(tokens);
+
+    printf("Chainage vert : ");
+    print_colorlinks(tokens, GREEN);
 
     return 0;
 }

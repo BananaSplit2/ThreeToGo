@@ -1,3 +1,8 @@
+#ifndef GRAPHIQUE_H
+#define GRAPHIQUE_H
+
+#include <MLV/MLV_all.h>
+
 #define RESO 50
 #define MAX_TOKENS 16
 
@@ -17,3 +22,5 @@ void token_draw(Token t, Case c);
 
 /** Dessine une liste de tokens sur une ligne */
 void token_draw_list(Token lst_tokens, int nb_tokens, Case cible);
+
+#endif

@@ -1,3 +1,6 @@
+#ifndef THREETOGO_H
+#define THREETOGO_H
+
 #define RED 0
 #define GREEN 1
 #define BLUE 2
@@ -24,3 +27,5 @@ typedef struct token{
     struct token* next_shape;
     struct token* previous_shape;
 }Token, *Liste;
+
+#endif
