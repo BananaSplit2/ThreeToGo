@@ -15,6 +15,20 @@ Token *alloc_token(int color, int shape) {
     return tmp;
 }
 
+int length(Liste tokens) {
+    int i = 0;
+    Token *index = tokens;
+    if (tokens == NULL) {
+        return 0;
+    }
+    do {
+        i++;
+        index = index->next;
+    } while(index != tokens);
+    
+    return i;
+}
+
 Token *next_shape(Token *token) {
     if (token == NULL) {
         return NULL;
@@ -80,23 +94,23 @@ void attach_to_head(Liste *liste, Token *newtok) {
     } 
 }
 
-void attach_to_tail(Liste *liste, Token *source) {
+void attach_to_tail(Liste *liste, Token *newtok) {
     if (*liste == NULL) {
-        *liste = source;
+        *liste = newtok;
     }
     else {
         /* Chainage de source au premier token de la liste */
-        source->next = (*liste)->next;
+        newtok->next = (*liste)->next;
 
         /* Chainage du dernier token à source */
-        (*liste)->next = source;
+        (*liste)->next = newtok;
 
         /* Source devient le nouveau dernier token de la liste */
-        *liste = source;
+        *liste = newtok;
 
         /* MaJ du chainage couleur/forme */
-        update_shape_links(source);
-        update_color_links(source);
+        update_shape_links(newtok);
+        update_color_links(newtok);
     }
 }
 

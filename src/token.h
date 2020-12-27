@@ -1,5 +1,5 @@
-#ifndef MOTEUR_H
-#define MOTEUR_H
+#ifndef TOKEN_H
+#define TOKEN_H
 
 #include "threetogo.h"
 
@@ -10,6 +10,11 @@
  * @return adresse du token alloué, NULL si échec
  */
 Token *alloc_token(int color, int shape);
+
+/**
+ * Renvoie le nombre de tokens dans la liste
+ */
+int length(Liste tokens);
 
 /**
  * Renvoie le prochain token de la même forme dans la liste
@@ -42,14 +47,14 @@ void update_color_links(Token *token);
  * @param source adresse du token à rajouter
  * @param liste adresse de la liste à laquelle rajouter le token
  */
-void attach_to_head(Liste *liste, Token *source);
+void attach_to_head(Liste *liste, Token *newtok);
 
 /**
  * Attache un token en dernière position d'une liste
  * @param source adresse du token à rajouter
  * @param liste adresse de la liste à laquelle rajouter le token
  */
-void attach_to_tail(Liste *liste, Token *source);
+void attach_to_tail(Liste *liste, Token *newtok);
 
 /**
  * Détache le token de la liste

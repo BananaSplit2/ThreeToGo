@@ -4,33 +4,51 @@
 #include "threetogo.h"
 #include "token.h"
 #include "ascii.h"
-
-void createRandom(Liste *lst, int n) {
-    int i;
-    for (i = 0 ; i < n ; i++) {
-        Token *tok = alloc_token(rand()%4, rand()%4);
-        attach_to_tail(lst, tok);
-    }
-}
+#include "moteur.h"
 
 int main(void) {
     srand(time(NULL));
     Liste tokens = NULL;
+    Liste queue = NULL;
 
-    createRandom(&tokens, 4);
+    int score = 0;
+    int tmp;
 
-    print_tokens(tokens);
+    char choix;
 
-    printf("Chainage vert : ");
-    print_colorlinks(tokens, GREEN);
+    init_queue(&queue);
 
-    printf("\n apres permutation premier et dernier \n");
-    swap(&tokens, tokens, tokens->next);
+    while (1) {
+        printf("Queue : ");
+        print_tokens(queue);
 
-    print_tokens(tokens);
+        printf("Tokens :\n");
+        print_tokens(tokens);
 
-    printf("Chainage vert : ");
-    print_colorlinks(tokens, GREEN);
+        printf("\nl ou r : ");
+        scanf(" %c", &choix);
+
+        /* Ajout à gauche ou à droite */
+        switch (choix) {
+            case 'l':
+                add_left(&queue, &tokens);
+                break;
+            case 'r':
+                add_right(&queue, &tokens);
+                break;
+            default:
+                printf("Erreur");
+                break;
+        }
+
+        /* On s'assure de prendre en compte des combos (combinaisons qui apparaissent après un premier check) */
+        while ((tmp = check_combinations(&tokens)) > 0) {
+            score += tmp;
+        }
+
+        printf("Score actuel : %d\n\n", score);
+    }
+
 
     return 0;
 }

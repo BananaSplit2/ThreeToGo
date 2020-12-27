@@ -30,6 +30,10 @@ char repr_shape(int shape) {
 }
 
 void print_tokens(Liste tokens) {
+    if (tokens == NULL) {
+        printf("(Vide)\n");
+        return;
+    }
     Token *tmp = tokens->next;
     do {
         printf("--> %c %c ", repr_shape(tmp->shape), repr_color(tmp->color));
