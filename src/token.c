@@ -75,6 +75,20 @@ void update_color_links(Token *token) {
     previous->next_color = token;
 }
 
+void remove_shape_links(Token *token) {
+    token->previous_shape->next_shape = token->next_shape;
+    token->next_shape->previous_shape = token->previous_shape;
+    token->next_shape = token;
+    token->previous_shape = token;
+}
+
+void remove_color_links(Token *token) {
+    token->previous_color->next_color = token->next_color;
+    token->next_color->previous_color = token->previous_color;
+    token->next_color = token;
+    token->previous_color = token;
+}
+
 void attach_to_head(Liste *liste, Token *newtok) {
     if (*liste == NULL) {
         /* Initialisation de la liste */

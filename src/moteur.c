@@ -76,6 +76,11 @@ static void add_addresses(Token *start, int n, Token *array[], int *size) {
 }
 
 int check_combinations(Liste *lst) {
+    /* Liste vide */
+    if (*lst == NULL) {
+        return 0;
+    }
+
     Token *index = (*lst)->next;
     int score = 0;
 
@@ -153,9 +158,16 @@ void shift_shape_left(Liste *lst, Token *tok) {
 
     /* Succession de permutations permettant de réaliser le décalage circulaire */
     Token *tok2 = tok->previous_shape;
+    Token *tok1 = tok;
     while (tok2 != tok) {
-        swap(lst, tok, tok2);
-        tok = tok2;
+        /* On doit MaJ le chainage couleur avec les déplacements (le chainage 
+        des formes n'est pas changé par le déplacement circulaire) */
+        remove_color_links(tok1);
+        remove_color_links(tok2);
+        swap(lst, tok1, tok2);
+        update_color_links(tok1);
+        update_color_links(tok2);
+        tok1 = tok2;
         tok2 = tok2->previous_shape;
     }
 }
@@ -170,7 +182,13 @@ void shift_color_left(Liste *lst, Token *tok) {
     Token *tok2 = tok->previous_color;
     Token *tok1 = tok;
     while (tok2 != tok) {
+        /* On doit MaJ le chainage forme avec les déplacements (le chainage 
+        des couleurs n'est pas changé par le déplacement circulaire) */
+        remove_shape_links(tok1);
+        remove_shape_links(tok2);
         swap(lst, tok1, tok2);
+        update_shape_links(tok1);
+        update_shape_links(tok2);
         tok1 = tok2;
         tok2 = tok2->previous_color;
     }

@@ -43,6 +43,18 @@ void update_shape_links(Token *token);
 void update_color_links(Token *token);
 
 /**
+ * Sort le token du double chainage forme
+ * @param token token à extraire
+ */
+void remove_shape_links(Token *token);
+
+/**
+ * Sort le token du double chainage couleur
+ * @param token token à extraire
+ */
+void remove_color_links(Token *token);
+
+/**
  * Attache un token en première position d'une liste
  * @param source adresse du token à rajouter
  * @param liste adresse de la liste à laquelle rajouter le token

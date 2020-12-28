@@ -36,6 +36,12 @@ int main(void) {
             case 'r':
                 add_right(&queue, &tokens);
                 break;
+            case 'c':
+                shift_color_left(&tokens, tokens->next);
+                break;
+            case 's':
+                shift_shape_left(&tokens, tokens->next);
+                break;
             default:
                 printf("Erreur");
                 break;
