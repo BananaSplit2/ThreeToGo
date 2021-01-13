@@ -3,7 +3,8 @@
 #include <MLV/MLV_all.h>
 #include "threetogo.h"
 #include "graphique.h"
-#include <time.h>
+#include <math.h>
+#include <sys/time.h>
 
 Case mouse_to_square(int mousex, int mousey) {
 	
@@ -16,7 +17,6 @@ void window_open(int larg, int haut) {
 	
 	MLV_create_window("three-to-Go", "three-to-Go", larg, haut);
 	MLV_clear_window(MLV_COLOR_BLACK);
-	MLV_actualise_window();
 }
 
 void token_draw(Token t, Case c) {
@@ -53,8 +53,6 @@ void token_draw(Token t, Case c) {
 				 break;
 		}
 	}
-	
-	MLV_actualise_window();
 }
 
 
@@ -89,8 +87,6 @@ void button_add_draw(Case cible, char dir) {
 			break;
 			
 	}
-	
-	MLV_actualise_window();
 }
 
 
@@ -133,7 +129,6 @@ int token_select_check(int sizex, int sizey, int nb_tokens, Case cible, Liste ls
 			cible.lig += 2;
 			token_draw(tokdo, cible);
 			
-			MLV_actualise_window();
 			return position;
 		}
 	}
@@ -176,12 +171,24 @@ void timer_cat(char* message, int timer) {
 }
 
 
-void refresh_screen(int sizex, int sizey, Liste queue, Liste lst_tokens, int nb_tokens, int timer, int score) {
+float time_usec(struct timeval debut) {
+	
+	struct timeval step;
+	gettimeofday(&step, NULL);
+	
+	float usec = step.tv_sec - debut.tv_sec + (step.tv_usec - debut.tv_usec)/1000000.0;
+	
+	return usec;
+}
+
+
+void refresh_screen(int sizex, int sizey, Liste queue, Liste lst_tokens, int nb_tokens, float timer, int score, Case cible) {
 	
 	MLV_clear_window(MLV_COLOR_BLACK);
 	
 	Case origin = {2, 1}, caseg = {2, 3}, cased = {sizex/RESO - 5, 3};
 	char message_s[100] = "Score = ", message_t[20] = "Timer = ";
+	int timer_int = timer;
 	
 	MLV_draw_rectangle((origin.col+5)*RESO, origin.lig*RESO, RESO, RESO, MLV_COLOR_GRAY);
 	token_draw_list(queue, 5, origin);
@@ -195,9 +202,34 @@ void refresh_screen(int sizex, int sizey, Liste queue, Liste lst_tokens, int nb_
 	
 	score_cat(message_s, score);
 	MLV_draw_text(0, sizey - RESO, message_s, MLV_COLOR_CYAN);
-	timer_cat(message_t, timer);
+	timer_cat(message_t, timer_int);
 	MLV_draw_text(0, sizey - RESO*2, message_t, MLV_COLOR_CYAN);
+	
+	origin.lig = 1;
+	origin.col = sizex/RESO-2;
+	clock_draw(origin, timer);
+	
+	token_select_check(sizex, sizey, nb_tokens, cible, lst_tokens);
+	
 	MLV_actualise_window();
+}
+
+
+void clock_draw(Case cible, float duree) {
+	
+	MLV_draw_circle((cible.col+0.5)*RESO, (cible.lig+0.5)*RESO, RESO/1.5, MLV_COLOR_CYAN);
+	
+	int i;
+	for(i=0; i<duree; i++) {
+		MLV_draw_line((cible.col+0.5)*RESO, (cible.lig+0.5)*RESO, 
+					(cible.col+0.5)*RESO + (RESO/2.5)*sin(i/(DUREE_MAX*1.0) * 2*PI), 
+					(cible.lig+0.5)*RESO - (RESO/2.5)*cos(i/(DUREE_MAX*1.0) * 2*PI), 
+						MLV_COLOR_CYAN);
+	}
+	MLV_draw_line((cible.col+0.5)*RESO, (cible.lig+0.5)*RESO, 
+					(cible.col+0.5)*RESO + (RESO/1.75)*sin(duree/(DUREE_MAX*1.0) * 2*PI), 
+					(cible.lig+0.5)*RESO - (RESO/1.75)*cos(duree/(DUREE_MAX*1.0) * 2*PI), 
+						MLV_COLOR_CYAN);
 }
 
 

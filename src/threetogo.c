@@ -3,6 +3,7 @@
 #include "moteur.h"
 #include "token.h"
 #include <time.h>
+#include <sys/time.h>
 
 
 
@@ -13,23 +14,28 @@ int main(void) {
 	int nb_tokens = 0, score = 0, check = 0;
 	
 	int mousex, mousey;
-	Case cible, ciblebis;
+	Case cible = {0, 0}, ciblebis;
 	
 	Liste queue = NULL, lst_tokens = NULL;
 	init_queue(&queue);
 	
 	window_open(sizex, sizey); printf("OK Start...\n");
-	int debut = time(NULL);
+	
+	struct timeval debut;
+	gettimeofday(&debut, NULL);
+	MLV_change_frame_rate(FRAME_RATE);
 	MLV_Event event;
+	MLV_Button_state button;
 	
 	/* Boucle principale */
 	do {
 		
 		do {
-			refresh_screen(sizex, sizey, queue, lst_tokens, nb_tokens, time(NULL)-debut, score);
-			event = MLV_wait_mouse_or_seconds(&mousex, &mousey, 1);
+			refresh_screen(sizex, sizey, queue, lst_tokens, nb_tokens, time_usec(debut), score, cible);
+			MLV_delay_according_to_frame_rate();
+			event = MLV_get_event(NULL, NULL, NULL, NULL, NULL, &mousex, &mousey, NULL, &button);
 		}
-		while(event != 1 && time(NULL)-debut < 120);
+		while((event != MLV_MOUSE_BUTTON || button == MLV_RELEASED) && time_usec(debut) < DUREE_MAX);
 		cible = mouse_to_square(mousex, mousey);
 		
 		/* Si le clic est sur un bouton d'ajout */
@@ -52,11 +58,11 @@ int main(void) {
 			}
 			
 			do {
-				refresh_screen(sizex, sizey, queue, lst_tokens, nb_tokens, time(NULL)-debut, score);
-				token_select_check(sizex, sizey, nb_tokens, cible, lst_tokens);
-				event = MLV_wait_mouse_or_seconds(&mousex, &mousey, 1);
+				refresh_screen(sizex, sizey, queue, lst_tokens, nb_tokens, time_usec(debut), score, cible);
+				MLV_delay_according_to_frame_rate();
+				event = MLV_get_event(NULL, NULL, NULL, NULL, NULL, &mousex, &mousey, NULL, &button);
 			}
-			while(event != 1 && time(NULL)-debut < 120);
+			while((event != MLV_MOUSE_BUTTON || button == MLV_RELEASED) && time_usec(debut) < DUREE_MAX);
 			ciblebis = mouse_to_square(mousex, mousey);
 			
 			if(ciblebis.col == cible.col) {
@@ -70,12 +76,13 @@ int main(void) {
 					shift_commonshape_left(&lst_tokens, tok);
 				}
 			}
+			cible = mouse_to_square(0, 0);
 		}
 		score += check_combinations(&lst_tokens);
 		nb_tokens = length(lst_tokens);
 		
 	}
-	while(time(NULL) - debut < 120);
+	while(time_usec(debut) < DUREE_MAX);
 	
 	printf("\n--GAME OVER--\nScore final = %d\n\n", score);
 
