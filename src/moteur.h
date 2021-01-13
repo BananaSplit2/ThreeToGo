@@ -21,6 +21,12 @@ typedef struct{
 int init_queue(Liste *queue);
 
 /**
+ * Libère toute la mémoire utilisée par la liste
+ * @liste liste à libérer
+ */
+void free_liste(Liste *liste);
+
+/**
  * Déplace le prochain token dans la queue en tête de la liste de tokens
  * @param queue adresse vers la queue
  * @param tokens adresse vers la liste de tokens
@@ -47,13 +53,13 @@ int check_combinations(Liste *lst);
  * @param lst adresse de la liste
  * @param tok adresse du token servant de base au décalage
  */
-void shift_shape_left(Liste *lst, Token *tok);
+void shift_commonshape_left(Liste *lst, Token *tok);
 
 /**
  * Effectue un décalage circulaire vers la gauche des tokens de la même couleur
  * @param lst adresse de la liste
  * @param tok adresse du token servant de base au décalage
  */
-void shift_color_left(Liste *lst, Token *tok);
+void shift_commoncolor_left(Liste *lst, Token *tok);
 
 #endif

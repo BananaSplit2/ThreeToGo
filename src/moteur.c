@@ -14,6 +14,16 @@ int init_queue(Liste *queue) {
     return 1;
 }
 
+void free_liste(Liste *liste) {
+    Token *tmp, *index = *liste;
+    do {
+        tmp = index->next;
+        free(index);
+        index = tmp;
+    }while (index != *liste);
+    *liste = NULL;
+}
+
 int add_left(Liste *queue, Liste *tokens) {
     /* On extrait le dernier élément de la queue */
     Token *tok = detach_token(queue, *queue);
@@ -150,7 +160,7 @@ int check_combinations(Liste *lst) {
     return score;
 }
 
-void shift_shape_left(Liste *lst, Token *tok) {
+void shift_commonshape_left(Liste *lst, Token *tok) {
     /* Liste vide ou token vide */
     if (*lst == NULL || tok == NULL) {
         return;
@@ -172,7 +182,7 @@ void shift_shape_left(Liste *lst, Token *tok) {
     }
 }
 
-void shift_color_left(Liste *lst, Token *tok) {
+void shift_commoncolor_left(Liste *lst, Token *tok) {
     /* Liste vide ou token vide */
     if (*lst == NULL || tok == NULL) {
         return;

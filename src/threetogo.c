@@ -69,14 +69,12 @@ int main(void) {
 			if(ciblebis.col == cible.col) {
 				
 				/* Choix du haut : on décale les formes sur la gauche */
-				if(ciblebis.lig == cible.lig -1) {
-					shift_color_left(&lst_tokens, tok);
-					printf("Shift Color ON\n");
+				if(ciblebis.lig == cible.lig - 1) {
+					shift_commoncolor_left(&lst_tokens, tok);
 				}
 				/* Choix du bas : on décale les couleurs sur la gauche */
-				else if(ciblebis.lig == cible.lig +1) {
-					shift_shape_left(&lst_tokens, tok);
-					printf("Shift Shape ON\n");
+				else if(ciblebis.lig == cible.lig + 1) {
+					shift_commonshape_left(&lst_tokens, tok);
 				}
 			}
 		}

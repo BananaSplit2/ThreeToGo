@@ -8,17 +8,14 @@
 
 int main(void) {
     srand(time(NULL));
-    Liste tokens = NULL;
-    Liste queue = NULL;
+    Liste tokens = NULL, queue = NULL;
 
-    int score = 0;
-    int tmp;
-
-    char choix;
+    int tmp, score = 0;
+    char choix, continuer = 1;
 
     init_queue(&queue);
 
-    while (1) {
+    while (continuer == 1) {
         printf("Queue : ");
         print_tokens(queue);
 
@@ -37,10 +34,13 @@ int main(void) {
                 add_right(&queue, &tokens);
                 break;
             case 'c':
-                shift_color_left(&tokens, tokens->next);
+                shift_commoncolor_left(&tokens, tokens->next);
                 break;
             case 's':
-                shift_shape_left(&tokens, tokens->next);
+                shift_commonshape_left(&tokens, tokens->next);
+                break;
+            case 'e':
+                continuer = 0;
                 break;
             default:
                 printf("Erreur");
@@ -55,6 +55,9 @@ int main(void) {
         printf("Score actuel : %d\n\n", score);
     }
 
+    /* Libération de la mémoire */
+    free_liste(&queue);
+    free_liste(&tokens);
 
     return 0;
 }
