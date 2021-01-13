@@ -40,4 +40,8 @@ void score_cat(char* message, int score);
 /** Concatène le timer à la fin du message */
 void timer_cat(char* message, int timer);
 
+/** Rafraichit l'affichage de base du jeu */
+void refresh_screen(int sizex, int sizey, Liste queue, Liste lst_tokens, int nb_tokens, int timer, int score);
+
+
 #endif

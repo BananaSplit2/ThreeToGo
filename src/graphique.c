@@ -3,7 +3,7 @@
 #include <MLV/MLV_all.h>
 #include "threetogo.h"
 #include "graphique.h"
-
+#include <time.h>
 
 Case mouse_to_square(int mousex, int mousey) {
 	
@@ -173,6 +173,31 @@ void timer_cat(char* message, int timer) {
 	message[ind+8] = ' ';
 	message[ind+9] = 's';
 	message[ind+10] = letter;
+}
+
+
+void refresh_screen(int sizex, int sizey, Liste queue, Liste lst_tokens, int nb_tokens, int timer, int score) {
+	
+	MLV_clear_window(MLV_COLOR_BLACK);
+	
+	Case origin = {2, 1}, caseg = {2, 3}, cased = {sizex/RESO - 5, 3};
+	char message_s[100] = "Score = ", message_t[20] = "Timer = ";
+	
+	MLV_draw_rectangle((origin.col+5)*RESO, origin.lig*RESO, RESO, RESO, MLV_COLOR_GRAY);
+	token_draw_list(queue, 5, origin);
+	
+	button_add_draw(caseg, 'l');
+	button_add_draw(cased, 'r');
+	
+	origin.lig = 5;
+	origin.col = (sizex/2)/RESO - nb_tokens/2 -1;
+	token_draw_list(lst_tokens, nb_tokens, origin);
+	
+	score_cat(message_s, score);
+	MLV_draw_text(0, sizey - RESO, message_s, MLV_COLOR_CYAN);
+	timer_cat(message_t, timer);
+	MLV_draw_text(0, sizey - RESO*2, message_t, MLV_COLOR_CYAN);
+	MLV_actualise_window();
 }
 
 
