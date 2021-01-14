@@ -30,4 +30,18 @@ typedef struct token{
     struct token* previous_shape;
 }Token, *Liste;
 
+
+/**
+ * Représente une partie avec son score et son timer
+ * L'état de la partie est composée d'une queue et d'une liste
+ * d'un certain nombre de tokens
+ */
+typedef struct game{
+    int score;
+    float timer;
+    int nb_tokens;
+    Liste* lst_tokens;
+    Liste* queue;
+}Game;
+
 #endif
