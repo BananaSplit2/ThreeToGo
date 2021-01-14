@@ -3,12 +3,8 @@
 #include "moteur.h"
 #include "token.h"
 #include <time.h>
-<<<<<<< HEAD
 #include <MLV/MLV_all.h>
-=======
 #include <sys/time.h>
-
->>>>>>> 85a9b5987e1cdbeffc851c1438ff3389b5315891
 
 
 int main(void) {
