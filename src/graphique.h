@@ -2,12 +2,16 @@
 #define GRAPHIQUE_H
 
 #define RESO 50
+#define FRAME_RATE 60
 #define MAX_TOKENS 16
+#define DUREE_MAX 120
+#define PI 3.14159265358979323846264338
 
 typedef struct {
     int col;
     int lig;
 } Case;
+
 
 /** Transforme le pixel d'un clic de souris en coordonnées de case */
 Case mouse_to_square(int mousex, int mousey);
@@ -37,5 +41,14 @@ void score_cat(char* message, int score);
 
 /** Concatène le timer à la fin du message */
 void timer_cat(char* message, int timer);
+
+/** Renvoie le float de l'interval écoulé entre debut et maintenant */
+float time_usec(struct timeval debut);
+
+/** Rafraichit l'affichage de base du jeu */
+void refresh_screen(int sizex, int sizey, Liste queue, Liste lst_tokens, int nb_tokens, float timer, int score, Case cible);
+
+/** Dessine une horloge pour une certaine durée */
+void clock_draw(Case cible, float duree);
 
 #endif

@@ -3,47 +3,43 @@
 #include "moteur.h"
 #include "token.h"
 #include <time.h>
+<<<<<<< HEAD
 #include <MLV/MLV_all.h>
+=======
+#include <sys/time.h>
+
+>>>>>>> 85a9b5987e1cdbeffc851c1438ff3389b5315891
 
 
 int main(void) {
 	
 	int sizex = 1000, sizey = 500;
-	Case origin = {2, 1}, caseg = {2, 3}, cased = {sizex/RESO - 5, 3};
 	
 	int nb_tokens = 0, score = 0, check = 0;
-	char message_s[100] = "Score = ", message_t[20] = "Timer = ";
 	
 	int mousex, mousey;
-	Case cible, ciblebis;
+	Case cible = {0, 0}, ciblebis;
 	
 	Liste queue = NULL, lst_tokens = NULL;
 	init_queue(&queue);
 	
 	window_open(sizex, sizey); printf("OK Start...\n");
-	int debut = time(NULL);
+	
+	struct timeval debut;
+	gettimeofday(&debut, NULL);
+	MLV_change_frame_rate(FRAME_RATE);
+	MLV_Event event;
+	MLV_Button_state button;
 	
 	/* Boucle principale */
 	do {
-		MLV_draw_rectangle((origin.col+5)*RESO, origin.lig*RESO, RESO, RESO, MLV_COLOR_GRAY);
-		token_draw_list(queue, 5, origin);
 		
-		button_add_draw(caseg, 'l');
-		button_add_draw(cased, 'r');
-		
-		cible.lig = 5;
-		cible.col = (sizex/2)/RESO - nb_tokens/2 -1;
-		token_draw_list(lst_tokens, nb_tokens, cible);
-		
-		score_cat(message_s, score);
-		MLV_draw_text(0, sizey - RESO, message_s, MLV_COLOR_CYAN);
-		timer_cat(message_t, time(NULL) - debut);
-		MLV_draw_text(0, sizey - RESO*2, message_t, MLV_COLOR_CYAN);
-		MLV_actualise_window();
-		
-		/* On attend un clic */
-		printf("temps = %ld\n", time(NULL) - debut);
-		MLV_wait_mouse(&mousex, &mousey);
+		do {
+			refresh_screen(sizex, sizey, queue, lst_tokens, nb_tokens, time_usec(debut), score, cible);
+			MLV_delay_according_to_frame_rate();
+			event = MLV_get_event(NULL, NULL, NULL, NULL, NULL, &mousex, &mousey, NULL, &button);
+		}
+		while((event != MLV_MOUSE_BUTTON || button == MLV_RELEASED) && time_usec(debut) < DUREE_MAX);
 		cible = mouse_to_square(mousex, mousey);
 		
 		/* Si le clic est sur un bouton d'ajout */
@@ -64,7 +60,12 @@ int main(void) {
 				}
 			}
 			
-			MLV_wait_mouse(&mousex, &mousey);
+			do {
+				refresh_screen(sizex, sizey, queue, lst_tokens, nb_tokens, time_usec(debut), score, cible);
+				MLV_delay_according_to_frame_rate();
+				event = MLV_get_event(NULL, NULL, NULL, NULL, NULL, &mousex, &mousey, NULL, &button);
+			}
+			while((event != MLV_MOUSE_BUTTON || button == MLV_RELEASED) && time_usec(debut) < DUREE_MAX);
 			ciblebis = mouse_to_square(mousex, mousey);
 			
 			if(ciblebis.col == cible.col) {
@@ -78,15 +79,13 @@ int main(void) {
 					shift_commonshape_left(&lst_tokens, tok);
 				}
 			}
+			cible = mouse_to_square(0, 0);
 		}
 		score += check_combinations(&lst_tokens);
 		nb_tokens = length(lst_tokens);
 		
-		MLV_clear_window(MLV_COLOR_BLACK);
 	}
-	while(time(NULL) - debut < 120);
-	
-	MLV_wait_mouse(&mousex, &mousey);
+	while(time_usec(debut) < DUREE_MAX);
 	
 	printf("\n--GAME OVER--\nScore final = %d\n\n", score);
 
