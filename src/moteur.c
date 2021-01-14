@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "moteur.h"
 #include "token.h"
+#include <stdio.h>
 
 int init_queue(Liste *queue) {
     int i;
@@ -155,6 +156,10 @@ int check_combinations(Liste *lst) {
     for (i = 0 ; i < size_array ; i++) {
         detach_token(lst, to_delete[i]);
         free(to_delete[i]);
+    }
+
+    if (score > 0) {
+        score += check_combinations(lst);
     }
 
     return score;

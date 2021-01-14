@@ -3,6 +3,7 @@
 #include "moteur.h"
 #include "token.h"
 #include <time.h>
+#include <MLV/MLV_all.h>
 
 
 int main(void) {
@@ -55,7 +56,6 @@ int main(void) {
 		
 		/* Si le clic est sur un jeton de la liste */
 		if((check = token_select_check(sizex, sizey, nb_tokens, cible, lst_tokens))) {
-			
 			Liste tok = lst_tokens;
 			if(check != nb_tokens) {
 				int i;
@@ -63,6 +63,7 @@ int main(void) {
 					tok = tok->next;
 				}
 			}
+			
 			MLV_wait_mouse(&mousex, &mousey);
 			ciblebis = mouse_to_square(mousex, mousey);
 			

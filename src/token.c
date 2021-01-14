@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "token.h"
 
 Token *alloc_token(int color, int shape) {

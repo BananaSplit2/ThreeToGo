@@ -1,8 +1,6 @@
 #ifndef GRAPHIQUE_H
 #define GRAPHIQUE_H
 
-#include <MLV/MLV_all.h>
-
 #define RESO 50
 #define MAX_TOKENS 16
 
