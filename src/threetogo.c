@@ -39,6 +39,7 @@ int main(void) {
 		do {
 			event = MLV_get_event(NULL, NULL, NULL, NULL, NULL, &mousex, &mousey, NULL, &button);
 
+			/* Clic de bouton */
 			if (event == MLV_MOUSE_BUTTON && button == MLV_PRESSED) {
 				if (attend_clique == 0) {
 					cible = mouse_to_square(mousex, mousey);
