@@ -4,7 +4,6 @@
 #include "threetogo.h"
 #include "graphique.h"
 #include <math.h>
-#include <sys/time.h>
 
 Case mouse_to_square(int mousex, int mousey) {
 	

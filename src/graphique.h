@@ -1,8 +1,9 @@
 #ifndef GRAPHIQUE_H
 #define GRAPHIQUE_H
 
+#include <sys/time.h>
+
 #define RESO 50
-#define FRAME_RATE 60
 #define MAX_TOKENS 16
 #define DUREE_MAX 120
 #define PI 3.14159265358979323846264338

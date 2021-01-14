@@ -11,6 +11,8 @@
 #define TRIANGLE 2
 #define DIAMOND 3
 
+#define FRAME_RATE 30
+
 /**
  * Représente une forme avec sa couleur et sa forme
  * Les formes peuvent être chainées entres elles
