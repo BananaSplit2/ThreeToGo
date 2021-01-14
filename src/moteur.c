@@ -177,8 +177,6 @@ void shift_commonshape_left(Liste *lst, Token *tok) {
     while (tok2 != tok) {
         /* On doit MaJ le chainage couleur avec les déplacements (le chainage 
         des formes n'est pas changé par le déplacement circulaire) */
-        remove_color_links(tok1);
-        remove_color_links(tok2);
         swap(lst, tok1, tok2);
         update_color_links(tok1);
         update_color_links(tok2);
@@ -199,11 +197,10 @@ void shift_commoncolor_left(Liste *lst, Token *tok) {
     while (tok2 != tok) {
         /* On doit MaJ le chainage forme avec les déplacements (le chainage 
         des couleurs n'est pas changé par le déplacement circulaire) */
-        remove_shape_links(tok1);
-        remove_shape_links(tok2);
         swap(lst, tok1, tok2);
         update_shape_links(tok1);
         update_shape_links(tok2);
+        
         tok1 = tok2;
         tok2 = tok2->previous_color;
     }

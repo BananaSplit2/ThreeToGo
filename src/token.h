@@ -31,28 +31,16 @@ Token *next_shape(Token *token);
 Token *next_color(Token *token);
 
 /**
- * Rattache un token au double chainage forme
+ * Met à jour le double chainage de la forme du token
  * @param token adresse du token rajouté
  */
 void update_shape_links(Token *token);
 
 /**
- * Rattache un token au double chainage couleur
+ * Met à jour le double chainage de la couleur du token
  * @param token adresse du token rajouté
  */
 void update_color_links(Token *token);
-
-/**
- * Sort le token du double chainage forme
- * @param token token à extraire
- */
-void remove_shape_links(Token *token);
-
-/**
- * Sort le token du double chainage couleur
- * @param token token à extraire
- */
-void remove_color_links(Token *token);
 
 /**
  * Attache un token en première position d'une liste

@@ -55,39 +55,29 @@ Token *next_color(Token *token) {
 }
 
 void update_shape_links(Token *token) {
-    Token *next = next_shape(token);
-    Token *previous = next->previous_shape;
+   Token *current = token;
 
-    /* MaJ du chainage double */
-    token->next_shape = next;
-    token->previous_shape = previous;
-    next->previous_shape = token;
-    previous->next_shape = token;
+   do {
+       Token *next = next_shape(current);
+
+        current->next_shape = next;
+        next->previous_shape = current;
+
+        current = next;
+   } while (current != token);
 }
 
 void update_color_links(Token *token) {
-    Token *next = next_color(token);
-    Token *previous = next->previous_color;
+    Token *current = token;
 
-    /* MaJ du chainage double */
-    token->next_color = next;
-    token->previous_color = previous;
-    next->previous_color = token;
-    previous->next_color = token;
-}
+    do {
+       Token *next = next_color(current);
 
-void remove_shape_links(Token *token) {
-    token->previous_shape->next_shape = token->next_shape;
-    token->next_shape->previous_shape = token->previous_shape;
-    token->next_shape = token;
-    token->previous_shape = token;
-}
+        current->next_color = next;
+        next->previous_color = current;
 
-void remove_color_links(Token *token) {
-    token->previous_color->next_color = token->next_color;
-    token->next_color->previous_color = token->previous_color;
-    token->next_color = token;
-    token->previous_color = token;
+        current = next;
+   } while (current != token);
 }
 
 void attach_to_head(Liste *liste, Token *newtok) {
