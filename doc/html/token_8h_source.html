@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Three To Go:  Fichier source de src/token.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Three To Go
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Jeu Three To Go</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">token.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="token_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef TOKEN_H</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define TOKEN_H</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="threetogo_8h.html">threetogo.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<a class="code" href="structtoken.html">Token</a> *<a class="code" href="token_8h.html#a673653240c6ebdb19ffadbfb880efde2">alloc_token</a>(<span class="keywordtype">int</span> color, <span class="keywordtype">int</span> shape);</div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keywordtype">int</span> <a class="code" href="token_8h.html#a16618cebfc8d209d562c65d848f95a86">length</a>(<a class="code" href="structtoken.html">Liste</a> tokens);</div><div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<a class="code" href="structtoken.html">Token</a> *<a class="code" href="token_8h.html#a1524a49d0af2872e4147ce4dad043bb4">next_shape</a>(<a class="code" href="structtoken.html">Token</a> *<a class="code" href="structtoken.html">token</a>);</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<a class="code" href="structtoken.html">Token</a> *<a class="code" href="token_8h.html#a9e140295ada7471f8a115c8a03a3d398">next_color</a>(<a class="code" href="structtoken.html">Token</a> *<a class="code" href="structtoken.html">token</a>);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keywordtype">void</span> <a class="code" href="token_8h.html#a4ff155756679935755e53dfde38cbc2f">update_shape_links</a>(<a class="code" href="structtoken.html">Token</a> *<a class="code" href="structtoken.html">token</a>);</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">void</span> <a class="code" href="token_8h.html#a44267764da92d4b288a1428f5723674c">update_color_links</a>(<a class="code" href="structtoken.html">Token</a> *<a class="code" href="structtoken.html">token</a>);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keywordtype">void</span> <a class="code" href="token_8h.html#a351bebcb4f4503ce830aa29a2c7d497d">attach_to_head</a>(<a class="code" href="structtoken.html">Liste</a> *liste, <a class="code" href="structtoken.html">Token</a> *newtok);</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">void</span> <a class="code" href="token_8h.html#af93a60523c4cb6c2bf9b96419b590de2">attach_to_tail</a>(<a class="code" href="structtoken.html">Liste</a> *liste, <a class="code" href="structtoken.html">Token</a> *newtok);</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<a class="code" href="structtoken.html">Token</a> *<a class="code" href="token_8h.html#aa9eb038f82775d67019c4bda75b455d9">detach_token</a>(<a class="code" href="structtoken.html">Liste</a> *liste, <a class="code" href="structtoken.html">Token</a> *tok);</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="keywordtype">int</span> <a class="code" href="token_8h.html#aafa310ca7710df7c5bb29e421227afac">swap</a>(<a class="code" href="structtoken.html">Liste</a> *lst, <a class="code" href="structtoken.html">Token</a> *tok1, <a class="code" href="structtoken.html">Token</a> *tok2);</div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="token_8h_html_aafa310ca7710df7c5bb29e421227afac"><div class="ttname"><a href="token_8h.html#aafa310ca7710df7c5bb29e421227afac">swap</a></div><div class="ttdeci">int swap(Liste *lst, Token *tok1, Token *tok2)</div><div class="ttdef"><b>Definition:</b> token.c:175</div></div>
+<div class="ttc" id="token_8h_html_a1524a49d0af2872e4147ce4dad043bb4"><div class="ttname"><a href="token_8h.html#a1524a49d0af2872e4147ce4dad043bb4">next_shape</a></div><div class="ttdeci">Token * next_shape(Token *token)</div><div class="ttdef"><b>Definition:</b> token.c:33</div></div>
+<div class="ttc" id="token_8h_html_a9e140295ada7471f8a115c8a03a3d398"><div class="ttname"><a href="token_8h.html#a9e140295ada7471f8a115c8a03a3d398">next_color</a></div><div class="ttdeci">Token * next_color(Token *token)</div><div class="ttdef"><b>Definition:</b> token.c:45</div></div>
+<div class="ttc" id="structtoken_html"><div class="ttname"><a href="structtoken.html">token</a></div><div class="ttdef"><b>Definition:</b> threetogo.h:45</div></div>
+<div class="ttc" id="token_8h_html_a16618cebfc8d209d562c65d848f95a86"><div class="ttname"><a href="token_8h.html#a16618cebfc8d209d562c65d848f95a86">length</a></div><div class="ttdeci">int length(Liste tokens)</div><div class="ttdef"><b>Definition:</b> token.c:19</div></div>
+<div class="ttc" id="token_8h_html_a44267764da92d4b288a1428f5723674c"><div class="ttname"><a href="token_8h.html#a44267764da92d4b288a1428f5723674c">update_color_links</a></div><div class="ttdeci">void update_color_links(Token *token)</div><div class="ttdef"><b>Definition:</b> token.c:70</div></div>
+<div class="ttc" id="token_8h_html_a4ff155756679935755e53dfde38cbc2f"><div class="ttname"><a href="token_8h.html#a4ff155756679935755e53dfde38cbc2f">update_shape_links</a></div><div class="ttdeci">void update_shape_links(Token *token)</div><div class="ttdef"><b>Definition:</b> token.c:57</div></div>
+<div class="ttc" id="token_8h_html_a673653240c6ebdb19ffadbfb880efde2"><div class="ttname"><a href="token_8h.html#a673653240c6ebdb19ffadbfb880efde2">alloc_token</a></div><div class="ttdeci">Token * alloc_token(int color, int shape)</div><div class="ttdef"><b>Definition:</b> token.c:5</div></div>
+<div class="ttc" id="token_8h_html_af93a60523c4cb6c2bf9b96419b590de2"><div class="ttname"><a href="token_8h.html#af93a60523c4cb6c2bf9b96419b590de2">attach_to_tail</a></div><div class="ttdeci">void attach_to_tail(Liste *liste, Token *newtok)</div><div class="ttdef"><b>Definition:</b> token.c:102</div></div>
+<div class="ttc" id="token_8h_html_a351bebcb4f4503ce830aa29a2c7d497d"><div class="ttname"><a href="token_8h.html#a351bebcb4f4503ce830aa29a2c7d497d">attach_to_head</a></div><div class="ttdeci">void attach_to_head(Liste *liste, Token *newtok)</div><div class="ttdef"><b>Definition:</b> token.c:83</div></div>
+<div class="ttc" id="threetogo_8h_html"><div class="ttname"><a href="threetogo_8h.html">threetogo.h</a></div><div class="ttdoc">Contient les fonctions permettant de faire tourner le jeu. </div></div>
+<div class="ttc" id="token_8h_html_aa9eb038f82775d67019c4bda75b455d9"><div class="ttname"><a href="token_8h.html#aa9eb038f82775d67019c4bda75b455d9">detach_token</a></div><div class="ttdeci">Token * detach_token(Liste *liste, Token *tok)</div><div class="ttdef"><b>Definition:</b> token.c:122</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

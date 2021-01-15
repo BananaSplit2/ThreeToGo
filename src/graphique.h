@@ -1,17 +1,23 @@
+/**
+ * @file
+ * @brief Contient les fonctions du moteur graphique du jeu
+ */
+
 #ifndef GRAPHIQUE_H
 #define GRAPHIQUE_H
 
 #include <sys/time.h>
 
+/** Taille d'une case en pixels */
 #define RESO 50
-#define MAX_TOKENS 16
-#define DUREE_MAX 120
+/** Constante mathématique pi */
 #define PI 3.14159265358979323846264338
 
-typedef struct {
-    int col;
-    int lig;
-} Case;
+/** Représente une case sur la fenêtre. Chaque fenêtre est divisée comme grille de cases */
+typedef struct caseg{
+    int col; /**< Colonne */
+    int lig; /**< Ligne */
+}Case;
 
 
 /** 
@@ -55,6 +61,7 @@ void button_add_draw(Case cible, char dir) ;
  * Vérifie si un bouton d'ajout de jeton (gauche ou droit) a été cliqué
  * @param sizex entier largeur de la fenêtre en pixel
  * @param sizey entier hauteur de la fenêtre en pixel
+ * @param cible case cliquée originalement
  * @return 0 si non, 1 si gauche, 2 si droit
  */
 int button_add_check(int sizex, int sizey, Case cible);

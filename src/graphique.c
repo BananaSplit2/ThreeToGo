@@ -54,7 +54,6 @@ void token_draw(Token t, Case c) {
 	}
 }
 
-
 void token_draw_list(Liste lst_tokens, int nb_tokens, Case cible) {
 	
 	/** vérification pour exclure les listes vides **/
@@ -73,7 +72,6 @@ void token_draw_list(Liste lst_tokens, int nb_tokens, Case cible) {
 	}
 }
 
-
 void button_add_draw(Case cible, char dir) {
 	
 	switch(dir) {
@@ -91,7 +89,6 @@ void button_add_draw(Case cible, char dir) {
 	}
 }
 
-
 int button_add_check(int sizex, int sizey, Case cible) {
 	
 	/**ligne des boutons d'ajout**/
@@ -107,7 +104,6 @@ int button_add_check(int sizex, int sizey, Case cible) {
 	}
 	return 0;
 }
-
 
 int token_select_check(int sizex, int sizey, int nb_tokens, Case cible, Liste lst_tokens) {
 	
@@ -125,7 +121,6 @@ int token_select_check(int sizex, int sizey, int nb_tokens, Case cible, Liste ls
 	
 	return 0;
 }
-
 
 void token_select_draw(Case cible, Liste lst_tokens, int nb_tokens, int position) {
 	
@@ -154,7 +149,6 @@ void token_select_draw(Case cible, Liste lst_tokens, int nb_tokens, int position
 	}
 }
 
-
 void score_cat(char* message, int score) {
 	
 	char scoremess[100];
@@ -170,7 +164,6 @@ void score_cat(char* message, int score) {
 	}
 	message[ind+8] = letter;
 }
-
 
 void timer_cat(char* message, int timer) {
 	
@@ -191,7 +184,6 @@ void timer_cat(char* message, int timer) {
 	message[ind+10] = letter;
 }
 
-
 float time_usec(struct timeval debut) {
 	
 	struct timeval step;
@@ -201,7 +193,6 @@ float time_usec(struct timeval debut) {
 	
 	return usec;
 }
-
 
 void refresh_screen(int sizex, int sizey, Game g, Case cible) {
 	
@@ -214,7 +205,7 @@ void refresh_screen(int sizex, int sizey, Game g, Case cible) {
 	/**dessin de la queue et du cadre de sélection de l'élément en attente**/
 	MLV_draw_rectangle((origin.col+5)*RESO, origin.lig*RESO, RESO, RESO, MLV_COLOR_GRAY);
 	token_draw_list(*(g.queue), 5, origin);
-	
+
 	/**boutons d'ajout gauche/droite**/
 	button_add_draw(caseg, 'l');
 	button_add_draw(cased, 'r');
@@ -240,7 +231,6 @@ void refresh_screen(int sizex, int sizey, Game g, Case cible) {
 	MLV_actualise_window();
 }
 
-
 void clock_draw(Case cible, float duree) {
 	
 	MLV_draw_circle((cible.col+0.5)*RESO, (cible.lig+0.5)*RESO, RESO/1.5, MLV_COLOR_CYAN);
@@ -259,8 +249,3 @@ void clock_draw(Case cible, float duree) {
 					(cible.lig+0.5)*RESO - (RESO/1.75)*cos(duree/(DUREE_MAX*1.0) * 2*PI), 
 						MLV_COLOR_CYAN);
 }
-
-
-
-
-

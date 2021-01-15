@@ -1,0 +1,311 @@
+\hypertarget{graphique_8h}{}\section{Référence du fichier src/graphique.h}
+\label{graphique_8h}\index{src/graphique.\+h@{src/graphique.\+h}}
+
+
+Contient les fonctions du moteur graphique du jeu.  
+
+
+{\ttfamily \#include $<$sys/time.\+h$>$}\newline
+Graphe des dépendances par inclusion de graphique.\+h\+:
+% FIG 0
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcaseg}{caseg}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{graphique_8h_af5d065b74f0392b75a4443123049b27d}{R\+E\+SO}~50
+\item 
+\#define \hyperlink{graphique_8h_a598a3330b3c21701223ee0ca14316eca}{PI}~3.\+14159265358979323846264338
+\end{DoxyCompactItemize}
+\subsection*{Définitions de type}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structcaseg}{caseg} \hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case}
+\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case} \hyperlink{graphique_8h_af0d14d69d9ae275ee90f9a8a9bf157d7}{mouse\+\_\+to\+\_\+square} (int mousex, int mousey)
+\item 
+void \hyperlink{graphique_8h_a44d79477a26c24f1badeedf2c158a22d}{window\+\_\+open} (int larg, int haut)
+\item 
+void \hyperlink{graphique_8h_a78adf81cc842d94b282b0d94abd187df}{token\+\_\+draw} (\hyperlink{threetogo_8h_aa045e14e6c37e43b762ccba9c3ed6d9e}{Token} t, \hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case} c)
+\item 
+void \hyperlink{graphique_8h_a936e2fd551a080596bfaec3acbdf3913}{token\+\_\+draw\+\_\+list} (\hyperlink{threetogo_8h_a976a52d066ba7588a35e660807a4dd75}{Liste} lst\+\_\+tokens, int nb\+\_\+tokens, \hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case} cible)
+\item 
+void \hyperlink{graphique_8h_affb998543e380f0811795e05bec467af}{button\+\_\+add\+\_\+draw} (\hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case} cible, char dir)
+\item 
+int \hyperlink{graphique_8h_a8c919d1729a155e8ef29aa63f6aa8d5b}{button\+\_\+add\+\_\+check} (int sizex, int sizey, \hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case} cible)
+\item 
+int \hyperlink{graphique_8h_adfda676b195bfd0ff6e62ba605956ca5}{token\+\_\+select\+\_\+check} (int sizex, int sizey, int nb\+\_\+tokens, \hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case} cible, \hyperlink{threetogo_8h_a976a52d066ba7588a35e660807a4dd75}{Liste} lst\+\_\+tokens)
+\item 
+void \hyperlink{graphique_8h_a557e46a7977c18852fb1c79326c73127}{token\+\_\+select\+\_\+draw} (\hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case} cible, \hyperlink{threetogo_8h_a976a52d066ba7588a35e660807a4dd75}{Liste} lst\+\_\+tokens, int nb\+\_\+tokens, int position)
+\item 
+void \hyperlink{graphique_8h_a9f2adad3a9c66fd7719f6053cf373836}{score\+\_\+cat} (char $\ast$message, int score)
+\item 
+void \hyperlink{graphique_8h_a7f178a63c6591323b925ab82c7dc25a3}{timer\+\_\+cat} (char $\ast$message, int timer)
+\item 
+float \hyperlink{graphique_8h_ab5b61871abce67454749ae3ae3f6bad0}{time\+\_\+usec} (struct timeval debut)
+\item 
+void \hyperlink{graphique_8h_a0429b5680e4dd0a1f4d3fafa97b57707}{refresh\+\_\+screen} (int sizex, int sizey, \hyperlink{threetogo_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game} g, \hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case} cible)
+\item 
+void \hyperlink{graphique_8h_a376d99140665e03b4f6edffbcba1a039}{clock\+\_\+draw} (\hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case} cible, float duree)
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Contient les fonctions du moteur graphique du jeu. 
+
+
+
+\subsection{Documentation des macros}
+\mbox{\Hypertarget{graphique_8h_a598a3330b3c21701223ee0ca14316eca}\label{graphique_8h_a598a3330b3c21701223ee0ca14316eca}} 
+\index{graphique.\+h@{graphique.\+h}!PI@{PI}}
+\index{PI@{PI}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{PI}{PI}}
+{\footnotesize\ttfamily \#define PI~3.\+14159265358979323846264338}
+
+Constante mathématique pi \mbox{\Hypertarget{graphique_8h_af5d065b74f0392b75a4443123049b27d}\label{graphique_8h_af5d065b74f0392b75a4443123049b27d}} 
+\index{graphique.\+h@{graphique.\+h}!R\+E\+SO@{R\+E\+SO}}
+\index{R\+E\+SO@{R\+E\+SO}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{R\+E\+SO}{RESO}}
+{\footnotesize\ttfamily \#define R\+E\+SO~50}
+
+Taille d\textquotesingle{}une case en pixels 
+
+\subsection{Documentation des définitions de type}
+\mbox{\Hypertarget{graphique_8h_a3d1c287ecdf7291464a27302335927b5}\label{graphique_8h_a3d1c287ecdf7291464a27302335927b5}} 
+\index{graphique.\+h@{graphique.\+h}!Case@{Case}}
+\index{Case@{Case}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{Case}{Case}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structcaseg}{caseg} \hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case}}
+
+Représente une case sur la fenêtre. Chaque fenêtre est divisée comme grille de cases 
+
+\subsection{Documentation des fonctions}
+\mbox{\Hypertarget{graphique_8h_a8c919d1729a155e8ef29aa63f6aa8d5b}\label{graphique_8h_a8c919d1729a155e8ef29aa63f6aa8d5b}} 
+\index{graphique.\+h@{graphique.\+h}!button\+\_\+add\+\_\+check@{button\+\_\+add\+\_\+check}}
+\index{button\+\_\+add\+\_\+check@{button\+\_\+add\+\_\+check}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{button\+\_\+add\+\_\+check()}{button\_add\_check()}}
+{\footnotesize\ttfamily int button\+\_\+add\+\_\+check (\begin{DoxyParamCaption}\item[{int}]{sizex,  }\item[{int}]{sizey,  }\item[{\hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case}}]{cible }\end{DoxyParamCaption})}
+
+Vérifie si un bouton d\textquotesingle{}ajout de jeton (gauche ou droit) a été cliqué 
+\begin{DoxyParams}{Paramètres}
+{\em sizex} & entier largeur de la fenêtre en pixel \\
+\hline
+{\em sizey} & entier hauteur de la fenêtre en pixel \\
+\hline
+{\em cible} & case cliquée originalement \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+0 si non, 1 si gauche, 2 si droit 
+\end{DoxyReturn}
+ligne des boutons d\textquotesingle{}ajout
+
+bouton ajout à gauche
+
+bouton ajout à droite \mbox{\Hypertarget{graphique_8h_affb998543e380f0811795e05bec467af}\label{graphique_8h_affb998543e380f0811795e05bec467af}} 
+\index{graphique.\+h@{graphique.\+h}!button\+\_\+add\+\_\+draw@{button\+\_\+add\+\_\+draw}}
+\index{button\+\_\+add\+\_\+draw@{button\+\_\+add\+\_\+draw}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{button\+\_\+add\+\_\+draw()}{button\_add\_draw()}}
+{\footnotesize\ttfamily void button\+\_\+add\+\_\+draw (\begin{DoxyParamCaption}\item[{\hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case}}]{cible,  }\item[{char}]{dir }\end{DoxyParamCaption})}
+
+Dessine un bouton avec une flèche dans la direction voulue 
+\begin{DoxyParams}{Paramètres}
+{\em cible} & structure Case où dessiner \\
+\hline
+{\em dir} & caractère \\
+\hline
+\end{DoxyParams}
+bouton ajout à gauche
+
+bouton ajout à droite \mbox{\Hypertarget{graphique_8h_a376d99140665e03b4f6edffbcba1a039}\label{graphique_8h_a376d99140665e03b4f6edffbcba1a039}} 
+\index{graphique.\+h@{graphique.\+h}!clock\+\_\+draw@{clock\+\_\+draw}}
+\index{clock\+\_\+draw@{clock\+\_\+draw}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{clock\+\_\+draw()}{clock\_draw()}}
+{\footnotesize\ttfamily void clock\+\_\+draw (\begin{DoxyParamCaption}\item[{\hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case}}]{cible,  }\item[{float}]{duree }\end{DoxyParamCaption})}
+
+Dessine une horloge pour une certaine durée 
+\begin{DoxyParams}{Paramètres}
+{\em cible} & structure Case où dessiner \\
+\hline
+{\em duree} & flottant représentant la durée écoulée (en secondes) \\
+\hline
+\end{DoxyParams}
+traits rémanents pour portion de disque
+
+dessin de l\textquotesingle{}aiguille de l\textquotesingle{}horloge \mbox{\Hypertarget{graphique_8h_af0d14d69d9ae275ee90f9a8a9bf157d7}\label{graphique_8h_af0d14d69d9ae275ee90f9a8a9bf157d7}} 
+\index{graphique.\+h@{graphique.\+h}!mouse\+\_\+to\+\_\+square@{mouse\+\_\+to\+\_\+square}}
+\index{mouse\+\_\+to\+\_\+square@{mouse\+\_\+to\+\_\+square}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{mouse\+\_\+to\+\_\+square()}{mouse\_to\_square()}}
+{\footnotesize\ttfamily \hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case} mouse\+\_\+to\+\_\+square (\begin{DoxyParamCaption}\item[{int}]{mousex,  }\item[{int}]{mousey }\end{DoxyParamCaption})}
+
+Transforme le pixel d\textquotesingle{}un clic de souris en coordonnées de case 
+\begin{DoxyParams}{Paramètres}
+{\em mousex} & entier abscisse du pixel \\
+\hline
+{\em mousey} & entier ordonnée du pixel \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+structure Case avec coordonnées 
+\end{DoxyReturn}
+\mbox{\Hypertarget{graphique_8h_a0429b5680e4dd0a1f4d3fafa97b57707}\label{graphique_8h_a0429b5680e4dd0a1f4d3fafa97b57707}} 
+\index{graphique.\+h@{graphique.\+h}!refresh\+\_\+screen@{refresh\+\_\+screen}}
+\index{refresh\+\_\+screen@{refresh\+\_\+screen}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{refresh\+\_\+screen()}{refresh\_screen()}}
+{\footnotesize\ttfamily void refresh\+\_\+screen (\begin{DoxyParamCaption}\item[{int}]{sizex,  }\item[{int}]{sizey,  }\item[{\hyperlink{threetogo_8h_a25fa88d8fd72fce4763106b5bfdc6c43}{Game}}]{g,  }\item[{\hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case}}]{cible }\end{DoxyParamCaption})}
+
+Rafraichit l\textquotesingle{}affichage de base du jeu 
+\begin{DoxyParams}{Paramètres}
+{\em sizex} & entier largeur de la fenêtre \\
+\hline
+{\em sizey} & entier hauteur de la fenêtre \\
+\hline
+{\em g} & structure Game des paramètres de la partie \\
+\hline
+{\em cible} & structure Case de la case cliquée en dernier \\
+\hline
+\end{DoxyParams}
+dessin de la queue et du cadre de sélection de l\textquotesingle{}élément en attente
+
+boutons d\textquotesingle{}ajout gauche/droite
+
+dessin centré de la liste des jetons
+
+dessin des informations de l\textquotesingle{}interface
+
+dessin de l\textquotesingle{}horloge pour timer visuel \mbox{\Hypertarget{graphique_8h_a9f2adad3a9c66fd7719f6053cf373836}\label{graphique_8h_a9f2adad3a9c66fd7719f6053cf373836}} 
+\index{graphique.\+h@{graphique.\+h}!score\+\_\+cat@{score\+\_\+cat}}
+\index{score\+\_\+cat@{score\+\_\+cat}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{score\+\_\+cat()}{score\_cat()}}
+{\footnotesize\ttfamily void score\+\_\+cat (\begin{DoxyParamCaption}\item[{char $\ast$}]{message,  }\item[{int}]{score }\end{DoxyParamCaption})}
+
+Concatène le score à la fin du message 
+\begin{DoxyParams}{Paramètres}
+{\em message} & chaîne de caractères \\
+\hline
+{\em score} & entier valeur du score \\
+\hline
+\end{DoxyParams}
+transformer l\textquotesingle{}int en chaîne de caractères \mbox{\Hypertarget{graphique_8h_ab5b61871abce67454749ae3ae3f6bad0}\label{graphique_8h_ab5b61871abce67454749ae3ae3f6bad0}} 
+\index{graphique.\+h@{graphique.\+h}!time\+\_\+usec@{time\+\_\+usec}}
+\index{time\+\_\+usec@{time\+\_\+usec}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{time\+\_\+usec()}{time\_usec()}}
+{\footnotesize\ttfamily float time\+\_\+usec (\begin{DoxyParamCaption}\item[{struct timeval}]{debut }\end{DoxyParamCaption})}
+
+Renvoie le float de l\textquotesingle{}interval écoulé entre debut et maintenant 
+\begin{DoxyParams}{Paramètres}
+{\em debut} & structure timeval \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+flottant interval (en secondes) entre debut et l\textquotesingle{}heure actuel 
+\end{DoxyReturn}
+\mbox{\Hypertarget{graphique_8h_a7f178a63c6591323b925ab82c7dc25a3}\label{graphique_8h_a7f178a63c6591323b925ab82c7dc25a3}} 
+\index{graphique.\+h@{graphique.\+h}!timer\+\_\+cat@{timer\+\_\+cat}}
+\index{timer\+\_\+cat@{timer\+\_\+cat}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{timer\+\_\+cat()}{timer\_cat()}}
+{\footnotesize\ttfamily void timer\+\_\+cat (\begin{DoxyParamCaption}\item[{char $\ast$}]{message,  }\item[{int}]{timer }\end{DoxyParamCaption})}
+
+Concatène le timer à la fin du message 
+\begin{DoxyParams}{Paramètres}
+{\em message} & chaîne de caractères \\
+\hline
+{\em timer} & entier valeur du timer \\
+\hline
+\end{DoxyParams}
+symbole de secondes \mbox{\Hypertarget{graphique_8h_a78adf81cc842d94b282b0d94abd187df}\label{graphique_8h_a78adf81cc842d94b282b0d94abd187df}} 
+\index{graphique.\+h@{graphique.\+h}!token\+\_\+draw@{token\+\_\+draw}}
+\index{token\+\_\+draw@{token\+\_\+draw}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{token\+\_\+draw()}{token\_draw()}}
+{\footnotesize\ttfamily void token\+\_\+draw (\begin{DoxyParamCaption}\item[{\hyperlink{threetogo_8h_aa045e14e6c37e43b762ccba9c3ed6d9e}{Token}}]{t,  }\item[{\hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case}}]{c }\end{DoxyParamCaption})}
+
+Dessine un token de forme et couleur donnés 
+\begin{DoxyParams}{Paramètres}
+{\em t} & structure Token à dessiner \\
+\hline
+{\em c} & structure Case où dessiner \\
+\hline
+\end{DoxyParams}
+cercle
+
+carré
+
+triangle
+
+diamant \mbox{\Hypertarget{graphique_8h_a936e2fd551a080596bfaec3acbdf3913}\label{graphique_8h_a936e2fd551a080596bfaec3acbdf3913}} 
+\index{graphique.\+h@{graphique.\+h}!token\+\_\+draw\+\_\+list@{token\+\_\+draw\+\_\+list}}
+\index{token\+\_\+draw\+\_\+list@{token\+\_\+draw\+\_\+list}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{token\+\_\+draw\+\_\+list()}{token\_draw\_list()}}
+{\footnotesize\ttfamily void token\+\_\+draw\+\_\+list (\begin{DoxyParamCaption}\item[{\hyperlink{threetogo_8h_a976a52d066ba7588a35e660807a4dd75}{Liste}}]{lst\+\_\+tokens,  }\item[{int}]{nb\+\_\+tokens,  }\item[{\hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case}}]{cible }\end{DoxyParamCaption})}
+
+Dessine une liste de tokens sur une ligne 
+\begin{DoxyParams}{Paramètres}
+{\em lst\+\_\+tokens} & structure Liste de tokens à dessiner \\
+\hline
+{\em nb\+\_\+tokens} & entier nombre à dessiner \\
+\hline
+{\em cible} & structure Case où dessiner \\
+\hline
+\end{DoxyParams}
+vérification pour exclure les listes vides \mbox{\Hypertarget{graphique_8h_adfda676b195bfd0ff6e62ba605956ca5}\label{graphique_8h_adfda676b195bfd0ff6e62ba605956ca5}} 
+\index{graphique.\+h@{graphique.\+h}!token\+\_\+select\+\_\+check@{token\+\_\+select\+\_\+check}}
+\index{token\+\_\+select\+\_\+check@{token\+\_\+select\+\_\+check}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{token\+\_\+select\+\_\+check()}{token\_select\_check()}}
+{\footnotesize\ttfamily int token\+\_\+select\+\_\+check (\begin{DoxyParamCaption}\item[{int}]{sizex,  }\item[{int}]{sizey,  }\item[{int}]{nb\+\_\+tokens,  }\item[{\hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case}}]{cible,  }\item[{\hyperlink{threetogo_8h_a976a52d066ba7588a35e660807a4dd75}{Liste}}]{lst\+\_\+tokens }\end{DoxyParamCaption})}
+
+Vérifie si un token est cliqué 
+\begin{DoxyParams}{Paramètres}
+{\em sizex} & entier largeur de la fenêtre en pixels \\
+\hline
+{\em sizey} & entier hauteur de la fenêtre en pixels \\
+\hline
+{\em nb\+\_\+tokens} & entier du nombre de tokens alignés \\
+\hline
+{\em cible} & structure Case où dessiner \\
+\hline
+{\em lst\+\_\+tokens} & structure Liste des tokens alignés \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Renvoie}
+position entier du n-\/ième token sélectionné 
+\end{DoxyReturn}
+calcule de la position du token sélectionné \mbox{\Hypertarget{graphique_8h_a557e46a7977c18852fb1c79326c73127}\label{graphique_8h_a557e46a7977c18852fb1c79326c73127}} 
+\index{graphique.\+h@{graphique.\+h}!token\+\_\+select\+\_\+draw@{token\+\_\+select\+\_\+draw}}
+\index{token\+\_\+select\+\_\+draw@{token\+\_\+select\+\_\+draw}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{token\+\_\+select\+\_\+draw()}{token\_select\_draw()}}
+{\footnotesize\ttfamily void token\+\_\+select\+\_\+draw (\begin{DoxyParamCaption}\item[{\hyperlink{graphique_8h_a3d1c287ecdf7291464a27302335927b5}{Case}}]{cible,  }\item[{\hyperlink{threetogo_8h_a976a52d066ba7588a35e660807a4dd75}{Liste}}]{lst\+\_\+tokens,  }\item[{int}]{nb\+\_\+tokens,  }\item[{int}]{position }\end{DoxyParamCaption})}
+
+Si la position donnée est strictement positive, dessine la sélection 
+\begin{DoxyParams}{Paramètres}
+{\em cible} & structure Case où dessiner \\
+\hline
+{\em lst\+\_\+tokens} & structure Liste des tokens alignés \\
+\hline
+{\em nb\+\_\+tokens} & entier du nombre de tokens alignés \\
+\hline
+{\em position} & entier du n-\/ième token sélectionné \\
+\hline
+\end{DoxyParams}
+si la position est nulle, aucun token n\textquotesingle{}est choisi
+
+jeton démo pour décalage des jetons de couleurs communes
+
+jeton démo pour décalage des jetons de formes communes \mbox{\Hypertarget{graphique_8h_a44d79477a26c24f1badeedf2c158a22d}\label{graphique_8h_a44d79477a26c24f1badeedf2c158a22d}} 
+\index{graphique.\+h@{graphique.\+h}!window\+\_\+open@{window\+\_\+open}}
+\index{window\+\_\+open@{window\+\_\+open}!graphique.\+h@{graphique.\+h}}
+\subsubsection{\texorpdfstring{window\+\_\+open()}{window\_open()}}
+{\footnotesize\ttfamily void window\+\_\+open (\begin{DoxyParamCaption}\item[{int}]{larg,  }\item[{int}]{haut }\end{DoxyParamCaption})}
+
+Ouvre une fenêtre vide à fond noir 
+\begin{DoxyParams}{Paramètres}
+{\em larg} & entier nombre de pixels de largeur \\
+\hline
+{\em haut} & entier nombre de pixels de hauteur \\
+\hline
+\end{DoxyParams}

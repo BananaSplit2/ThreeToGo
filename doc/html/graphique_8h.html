@@ -1,0 +1,728 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Three To Go: Référence du fichier src/graphique.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Three To Go
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Jeu Three To Go</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Structures de données</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Définitions de type</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle">
+<div class="title">Référence du fichier graphique.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Contient les fonctions du moteur graphique du jeu.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &lt;sys/time.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de graphique.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="graphique_8h__incl.png" border="0" usemap="#src_2graphique_8h" alt=""/></div>
+<map name="src_2graphique_8h" id="src_2graphique_8h">
+</map>
+</div>
+</div>
+<p><a href="graphique_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Structures de données</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcaseg.html">caseg</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:af5d065b74f0392b75a4443123049b27d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#af5d065b74f0392b75a4443123049b27d">RESO</a>&#160;&#160;&#160;50</td></tr>
+<tr class="separator:af5d065b74f0392b75a4443123049b27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a598a3330b3c21701223ee0ca14316eca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#a598a3330b3c21701223ee0ca14316eca">PI</a>&#160;&#160;&#160;3.14159265358979323846264338</td></tr>
+<tr class="separator:a598a3330b3c21701223ee0ca14316eca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Définitions de type</h2></td></tr>
+<tr class="memitem:a3d1c287ecdf7291464a27302335927b5"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structcaseg.html">caseg</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a></td></tr>
+<tr class="separator:a3d1c287ecdf7291464a27302335927b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:af0d14d69d9ae275ee90f9a8a9bf157d7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#af0d14d69d9ae275ee90f9a8a9bf157d7">mouse_to_square</a> (int mousex, int mousey)</td></tr>
+<tr class="separator:af0d14d69d9ae275ee90f9a8a9bf157d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44d79477a26c24f1badeedf2c158a22d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#a44d79477a26c24f1badeedf2c158a22d">window_open</a> (int larg, int haut)</td></tr>
+<tr class="separator:a44d79477a26c24f1badeedf2c158a22d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78adf81cc842d94b282b0d94abd187df"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#a78adf81cc842d94b282b0d94abd187df">token_draw</a> (<a class="el" href="threetogo_8h.html#aa045e14e6c37e43b762ccba9c3ed6d9e">Token</a> t, <a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a> c)</td></tr>
+<tr class="separator:a78adf81cc842d94b282b0d94abd187df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a936e2fd551a080596bfaec3acbdf3913"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#a936e2fd551a080596bfaec3acbdf3913">token_draw_list</a> (<a class="el" href="threetogo_8h.html#a976a52d066ba7588a35e660807a4dd75">Liste</a> lst_tokens, int nb_tokens, <a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a> cible)</td></tr>
+<tr class="separator:a936e2fd551a080596bfaec3acbdf3913"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affb998543e380f0811795e05bec467af"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#affb998543e380f0811795e05bec467af">button_add_draw</a> (<a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a> cible, char dir)</td></tr>
+<tr class="separator:affb998543e380f0811795e05bec467af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c919d1729a155e8ef29aa63f6aa8d5b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#a8c919d1729a155e8ef29aa63f6aa8d5b">button_add_check</a> (int sizex, int sizey, <a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a> cible)</td></tr>
+<tr class="separator:a8c919d1729a155e8ef29aa63f6aa8d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfda676b195bfd0ff6e62ba605956ca5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#adfda676b195bfd0ff6e62ba605956ca5">token_select_check</a> (int sizex, int sizey, int nb_tokens, <a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a> cible, <a class="el" href="threetogo_8h.html#a976a52d066ba7588a35e660807a4dd75">Liste</a> lst_tokens)</td></tr>
+<tr class="separator:adfda676b195bfd0ff6e62ba605956ca5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a557e46a7977c18852fb1c79326c73127"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#a557e46a7977c18852fb1c79326c73127">token_select_draw</a> (<a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a> cible, <a class="el" href="threetogo_8h.html#a976a52d066ba7588a35e660807a4dd75">Liste</a> lst_tokens, int nb_tokens, int position)</td></tr>
+<tr class="separator:a557e46a7977c18852fb1c79326c73127"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f2adad3a9c66fd7719f6053cf373836"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#a9f2adad3a9c66fd7719f6053cf373836">score_cat</a> (char *message, int score)</td></tr>
+<tr class="separator:a9f2adad3a9c66fd7719f6053cf373836"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f178a63c6591323b925ab82c7dc25a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#a7f178a63c6591323b925ab82c7dc25a3">timer_cat</a> (char *message, int timer)</td></tr>
+<tr class="separator:a7f178a63c6591323b925ab82c7dc25a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5b61871abce67454749ae3ae3f6bad0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#ab5b61871abce67454749ae3ae3f6bad0">time_usec</a> (struct timeval debut)</td></tr>
+<tr class="separator:ab5b61871abce67454749ae3ae3f6bad0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0429b5680e4dd0a1f4d3fafa97b57707"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#a0429b5680e4dd0a1f4d3fafa97b57707">refresh_screen</a> (int sizex, int sizey, <a class="el" href="threetogo_8h.html#a25fa88d8fd72fce4763106b5bfdc6c43">Game</a> g, <a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a> cible)</td></tr>
+<tr class="separator:a0429b5680e4dd0a1f4d3fafa97b57707"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a376d99140665e03b4f6edffbcba1a039"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="graphique_8h.html#a376d99140665e03b4f6edffbcba1a039">clock_draw</a> (<a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a> cible, float duree)</td></tr>
+<tr class="separator:a376d99140665e03b4f6edffbcba1a039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Contient les fonctions du moteur graphique du jeu. </p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="a598a3330b3c21701223ee0ca14316eca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a598a3330b3c21701223ee0ca14316eca">&#9670;&nbsp;</a></span>PI</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define PI&#160;&#160;&#160;3.14159265358979323846264338</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Constante mathématique pi </p>
+
+</div>
+</div>
+<a id="af5d065b74f0392b75a4443123049b27d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5d065b74f0392b75a4443123049b27d">&#9670;&nbsp;</a></span>RESO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RESO&#160;&#160;&#160;50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Taille d'une case en pixels </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des définitions de type</h2>
+<a id="a3d1c287ecdf7291464a27302335927b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d1c287ecdf7291464a27302335927b5">&#9670;&nbsp;</a></span>Case</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structcaseg.html">caseg</a> <a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Représente une case sur la fenêtre. Chaque fenêtre est divisée comme grille de cases </p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a8c919d1729a155e8ef29aa63f6aa8d5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c919d1729a155e8ef29aa63f6aa8d5b">&#9670;&nbsp;</a></span>button_add_check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int button_add_check </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sizex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sizey</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a>&#160;</td>
+          <td class="paramname"><em>cible</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Vérifie si un bouton d'ajout de jeton (gauche ou droit) a été cliqué </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sizex</td><td>entier largeur de la fenêtre en pixel </td></tr>
+    <tr><td class="paramname">sizey</td><td>entier hauteur de la fenêtre en pixel </td></tr>
+    <tr><td class="paramname">cible</td><td>case cliquée originalement </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 si non, 1 si gauche, 2 si droit </dd></dl>
+<p>ligne des boutons d'ajout</p>
+<p>bouton ajout à gauche</p>
+<p>bouton ajout à droite </p>
+
+</div>
+</div>
+<a id="affb998543e380f0811795e05bec467af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affb998543e380f0811795e05bec467af">&#9670;&nbsp;</a></span>button_add_draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void button_add_draw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a>&#160;</td>
+          <td class="paramname"><em>cible</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>dir</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dessine un bouton avec une flèche dans la direction voulue </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cible</td><td>structure Case où dessiner </td></tr>
+    <tr><td class="paramname">dir</td><td>caractère </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>bouton ajout à gauche</p>
+<p>bouton ajout à droite </p>
+
+</div>
+</div>
+<a id="a376d99140665e03b4f6edffbcba1a039"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a376d99140665e03b4f6edffbcba1a039">&#9670;&nbsp;</a></span>clock_draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clock_draw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a>&#160;</td>
+          <td class="paramname"><em>cible</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>duree</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dessine une horloge pour une certaine durée </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cible</td><td>structure Case où dessiner </td></tr>
+    <tr><td class="paramname">duree</td><td>flottant représentant la durée écoulée (en secondes) </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>traits rémanents pour portion de disque</p>
+<p>dessin de l'aiguille de l'horloge </p>
+
+</div>
+</div>
+<a id="af0d14d69d9ae275ee90f9a8a9bf157d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0d14d69d9ae275ee90f9a8a9bf157d7">&#9670;&nbsp;</a></span>mouse_to_square()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a> mouse_to_square </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mousex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mousey</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Transforme le pixel d'un clic de souris en coordonnées de case </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mousex</td><td>entier abscisse du pixel </td></tr>
+    <tr><td class="paramname">mousey</td><td>entier ordonnée du pixel </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>structure Case avec coordonnées </dd></dl>
+
+</div>
+</div>
+<a id="a0429b5680e4dd0a1f4d3fafa97b57707"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0429b5680e4dd0a1f4d3fafa97b57707">&#9670;&nbsp;</a></span>refresh_screen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void refresh_screen </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sizex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sizey</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="threetogo_8h.html#a25fa88d8fd72fce4763106b5bfdc6c43">Game</a>&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a>&#160;</td>
+          <td class="paramname"><em>cible</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Rafraichit l'affichage de base du jeu </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sizex</td><td>entier largeur de la fenêtre </td></tr>
+    <tr><td class="paramname">sizey</td><td>entier hauteur de la fenêtre </td></tr>
+    <tr><td class="paramname">g</td><td>structure Game des paramètres de la partie </td></tr>
+    <tr><td class="paramname">cible</td><td>structure Case de la case cliquée en dernier </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>dessin de la queue et du cadre de sélection de l'élément en attente</p>
+<p>boutons d'ajout gauche/droite</p>
+<p>dessin centré de la liste des jetons</p>
+<p>dessin des informations de l'interface</p>
+<p>dessin de l'horloge pour timer visuel </p>
+
+</div>
+</div>
+<a id="a9f2adad3a9c66fd7719f6053cf373836"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f2adad3a9c66fd7719f6053cf373836">&#9670;&nbsp;</a></span>score_cat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void score_cat </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>score</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Concatène le score à la fin du message </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>chaîne de caractères </td></tr>
+    <tr><td class="paramname">score</td><td>entier valeur du score </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>transformer l'int en chaîne de caractères </p>
+
+</div>
+</div>
+<a id="ab5b61871abce67454749ae3ae3f6bad0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5b61871abce67454749ae3ae3f6bad0">&#9670;&nbsp;</a></span>time_usec()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float time_usec </td>
+          <td>(</td>
+          <td class="paramtype">struct timeval&#160;</td>
+          <td class="paramname"><em>debut</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Renvoie le float de l'interval écoulé entre debut et maintenant </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">debut</td><td>structure timeval </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>flottant interval (en secondes) entre debut et l'heure actuel </dd></dl>
+
+</div>
+</div>
+<a id="a7f178a63c6591323b925ab82c7dc25a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f178a63c6591323b925ab82c7dc25a3">&#9670;&nbsp;</a></span>timer_cat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void timer_cat </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>message</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>timer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Concatène le timer à la fin du message </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>chaîne de caractères </td></tr>
+    <tr><td class="paramname">timer</td><td>entier valeur du timer </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>symbole de secondes </p>
+
+</div>
+</div>
+<a id="a78adf81cc842d94b282b0d94abd187df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a78adf81cc842d94b282b0d94abd187df">&#9670;&nbsp;</a></span>token_draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void token_draw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="threetogo_8h.html#aa045e14e6c37e43b762ccba9c3ed6d9e">Token</a>&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a>&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dessine un token de forme et couleur donnés </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">t</td><td>structure Token à dessiner </td></tr>
+    <tr><td class="paramname">c</td><td>structure Case où dessiner </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>cercle</p>
+<p>carré</p>
+<p>triangle</p>
+<p>diamant </p>
+
+</div>
+</div>
+<a id="a936e2fd551a080596bfaec3acbdf3913"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a936e2fd551a080596bfaec3acbdf3913">&#9670;&nbsp;</a></span>token_draw_list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void token_draw_list </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="threetogo_8h.html#a976a52d066ba7588a35e660807a4dd75">Liste</a>&#160;</td>
+          <td class="paramname"><em>lst_tokens</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_tokens</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a>&#160;</td>
+          <td class="paramname"><em>cible</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Dessine une liste de tokens sur une ligne </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lst_tokens</td><td>structure Liste de tokens à dessiner </td></tr>
+    <tr><td class="paramname">nb_tokens</td><td>entier nombre à dessiner </td></tr>
+    <tr><td class="paramname">cible</td><td>structure Case où dessiner </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>vérification pour exclure les listes vides </p>
+
+</div>
+</div>
+<a id="adfda676b195bfd0ff6e62ba605956ca5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfda676b195bfd0ff6e62ba605956ca5">&#9670;&nbsp;</a></span>token_select_check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int token_select_check </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sizex</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>sizey</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_tokens</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a>&#160;</td>
+          <td class="paramname"><em>cible</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="threetogo_8h.html#a976a52d066ba7588a35e660807a4dd75">Liste</a>&#160;</td>
+          <td class="paramname"><em>lst_tokens</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Vérifie si un token est cliqué </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sizex</td><td>entier largeur de la fenêtre en pixels </td></tr>
+    <tr><td class="paramname">sizey</td><td>entier hauteur de la fenêtre en pixels </td></tr>
+    <tr><td class="paramname">nb_tokens</td><td>entier du nombre de tokens alignés </td></tr>
+    <tr><td class="paramname">cible</td><td>structure Case où dessiner </td></tr>
+    <tr><td class="paramname">lst_tokens</td><td>structure Liste des tokens alignés </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>position entier du n-ième token sélectionné </dd></dl>
+<p>calcule de la position du token sélectionné </p>
+
+</div>
+</div>
+<a id="a557e46a7977c18852fb1c79326c73127"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a557e46a7977c18852fb1c79326c73127">&#9670;&nbsp;</a></span>token_select_draw()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void token_select_draw </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a>&#160;</td>
+          <td class="paramname"><em>cible</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="threetogo_8h.html#a976a52d066ba7588a35e660807a4dd75">Liste</a>&#160;</td>
+          <td class="paramname"><em>lst_tokens</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>nb_tokens</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Si la position donnée est strictement positive, dessine la sélection </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cible</td><td>structure Case où dessiner </td></tr>
+    <tr><td class="paramname">lst_tokens</td><td>structure Liste des tokens alignés </td></tr>
+    <tr><td class="paramname">nb_tokens</td><td>entier du nombre de tokens alignés </td></tr>
+    <tr><td class="paramname">position</td><td>entier du n-ième token sélectionné </td></tr>
+  </table>
+  </dd>
+</dl>
+<p>si la position est nulle, aucun token n'est choisi</p>
+<p>jeton démo pour décalage des jetons de couleurs communes</p>
+<p>jeton démo pour décalage des jetons de formes communes </p>
+
+</div>
+</div>
+<a id="a44d79477a26c24f1badeedf2c158a22d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44d79477a26c24f1badeedf2c158a22d">&#9670;&nbsp;</a></span>window_open()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void window_open </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>larg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>haut</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Ouvre une fenêtre vide à fond noir </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">larg</td><td>entier nombre de pixels de largeur </td></tr>
+    <tr><td class="paramname">haut</td><td>entier nombre de pixels de hauteur </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,3 +1,8 @@
+/**
+ * @file
+ * @brief Contient les fonctions du moteur du jeu
+ */
+
 #ifndef MOTEUR_H
 #define MOTEUR_H
 
@@ -7,10 +12,10 @@
  * Structure utilisée pour caractériser des séquences de tokens consécutifs ayant
  * un caractère commun
  */
-typedef struct{
-    Token *start;
-    int value;
-    int size;
+typedef struct sequence{
+    Token *start; /**< Token au début de la séquence */
+    int value; /**< Forme/couleur de la séquence */
+    int size; /**< Taille de la séquence */
 }Sequence;
 
 /**
@@ -22,7 +27,7 @@ int init_queue(Liste *queue);
 
 /**
  * Libère toute la mémoire utilisée par la liste
- * @liste liste à libérer
+ * @param liste à libérer
  */
 void free_liste(Liste *liste);
 

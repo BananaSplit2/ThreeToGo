@@ -1,3 +1,8 @@
+/**
+ * @file
+ * @brief Contient les fonctions manipulant les listes de tokens
+ */
+
 #ifndef TOKEN_H
 #define TOKEN_H
 
@@ -44,14 +49,14 @@ void update_color_links(Token *token);
 
 /**
  * Attache un token en première position d'une liste
- * @param source adresse du token à rajouter
+ * @param newtok adresse du token à rajouter
  * @param liste adresse de la liste à laquelle rajouter le token
  */
 void attach_to_head(Liste *liste, Token *newtok);
 
 /**
  * Attache un token en dernière position d'une liste
- * @param source adresse du token à rajouter
+ * @param newtok adresse du token à rajouter
  * @param liste adresse de la liste à laquelle rajouter le token
  */
 void attach_to_tail(Liste *liste, Token *newtok);

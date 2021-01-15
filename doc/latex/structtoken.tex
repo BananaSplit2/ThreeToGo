@@ -1,0 +1,77 @@
+\hypertarget{structtoken}{}\section{Référence de la structure token}
+\label{structtoken}\index{token@{token}}
+
+
+{\ttfamily \#include $<$threetogo.\+h$>$}
+
+
+
+Graphe de collaboration de token\+:
+% FIG 0
+\subsection*{Attributs publics}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structtoken_aaa93d88403be1e2e2f0113e39eb667cf}\label{structtoken_aaa93d88403be1e2e2f0113e39eb667cf}} 
+int {\bfseries color}
+\item 
+int \hyperlink{structtoken_a314611343d3c7ae65b11356fd5618ea1}{shape}
+\item 
+struct \hyperlink{structtoken}{token} $\ast$ \hyperlink{structtoken_ab58ee0c791a215865addb101d174b38a}{next}
+\item 
+struct \hyperlink{structtoken}{token} $\ast$ \hyperlink{structtoken_aeeac6077761a45ebc4d41150cb8e0b22}{next\+\_\+color}
+\item 
+struct \hyperlink{structtoken}{token} $\ast$ \hyperlink{structtoken_acd6e4c0c716198eb9ea04af1e36cf458}{previous\+\_\+color}
+\item 
+struct \hyperlink{structtoken}{token} $\ast$ \hyperlink{structtoken_a18af74e038da24435e31faf1b208ddca}{next\+\_\+shape}
+\item 
+struct \hyperlink{structtoken}{token} $\ast$ \hyperlink{structtoken_ac4c029efc61de4a5e927d55fd585eb70}{previous\+\_\+shape}
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Représente une forme avec sa couleur et sa forme Les formes peuvent être chainées entres elles
+
+Le type Liste représente le chainage simple circulaire. Il pointe vers le dernier élément de la liste 
+
+\subsection{Documentation des données membres}
+\mbox{\Hypertarget{structtoken_ab58ee0c791a215865addb101d174b38a}\label{structtoken_ab58ee0c791a215865addb101d174b38a}} 
+\index{token@{token}!next@{next}}
+\index{next@{next}!token@{token}}
+\subsubsection{\texorpdfstring{next}{next}}
+{\footnotesize\ttfamily struct \hyperlink{structtoken}{token}$\ast$ token\+::next}
+
+Forme du token \mbox{\Hypertarget{structtoken_aeeac6077761a45ebc4d41150cb8e0b22}\label{structtoken_aeeac6077761a45ebc4d41150cb8e0b22}} 
+\index{token@{token}!next\+\_\+color@{next\+\_\+color}}
+\index{next\+\_\+color@{next\+\_\+color}!token@{token}}
+\subsubsection{\texorpdfstring{next\+\_\+color}{next\_color}}
+{\footnotesize\ttfamily struct \hyperlink{structtoken}{token}$\ast$ token\+::next\+\_\+color}
+
+Token suivant dans la liste \mbox{\Hypertarget{structtoken_a18af74e038da24435e31faf1b208ddca}\label{structtoken_a18af74e038da24435e31faf1b208ddca}} 
+\index{token@{token}!next\+\_\+shape@{next\+\_\+shape}}
+\index{next\+\_\+shape@{next\+\_\+shape}!token@{token}}
+\subsubsection{\texorpdfstring{next\+\_\+shape}{next\_shape}}
+{\footnotesize\ttfamily struct \hyperlink{structtoken}{token}$\ast$ token\+::next\+\_\+shape}
+
+Token précédent de la même couleur \mbox{\Hypertarget{structtoken_acd6e4c0c716198eb9ea04af1e36cf458}\label{structtoken_acd6e4c0c716198eb9ea04af1e36cf458}} 
+\index{token@{token}!previous\+\_\+color@{previous\+\_\+color}}
+\index{previous\+\_\+color@{previous\+\_\+color}!token@{token}}
+\subsubsection{\texorpdfstring{previous\+\_\+color}{previous\_color}}
+{\footnotesize\ttfamily struct \hyperlink{structtoken}{token}$\ast$ token\+::previous\+\_\+color}
+
+Token suivant de la même couleur \mbox{\Hypertarget{structtoken_ac4c029efc61de4a5e927d55fd585eb70}\label{structtoken_ac4c029efc61de4a5e927d55fd585eb70}} 
+\index{token@{token}!previous\+\_\+shape@{previous\+\_\+shape}}
+\index{previous\+\_\+shape@{previous\+\_\+shape}!token@{token}}
+\subsubsection{\texorpdfstring{previous\+\_\+shape}{previous\_shape}}
+{\footnotesize\ttfamily struct \hyperlink{structtoken}{token}$\ast$ token\+::previous\+\_\+shape}
+
+Token suivant de la même forme \mbox{\Hypertarget{structtoken_a314611343d3c7ae65b11356fd5618ea1}\label{structtoken_a314611343d3c7ae65b11356fd5618ea1}} 
+\index{token@{token}!shape@{shape}}
+\index{shape@{shape}!token@{token}}
+\subsubsection{\texorpdfstring{shape}{shape}}
+{\footnotesize\ttfamily int token\+::shape}
+
+Couleur du token 
+
+La documentation de cette structure a été générée à partir du fichier suivant \+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{threetogo_8h}{threetogo.\+h}\end{DoxyCompactItemize}

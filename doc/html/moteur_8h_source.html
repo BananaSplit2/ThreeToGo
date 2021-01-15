@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Three To Go:  Fichier source de src/moteur.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Three To Go
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Jeu Three To Go</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">moteur.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="moteur_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef MOTEUR_H</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define MOTEUR_H</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="threetogo_8h.html">threetogo.h</a>&quot;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structsequence.html">   15</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structsequence.html">sequence</a>{</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structsequence.html#ab5d5b1277dee91b9b524b62df22ae1c5">   16</a></span>&#160;    <a class="code" href="structtoken.html">Token</a> *<a class="code" href="structsequence.html#ab5d5b1277dee91b9b524b62df22ae1c5">start</a>; </div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structsequence.html#ac4f474c82e82cbb89ca7c36dd52be0ed">   17</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structsequence.html#ac4f474c82e82cbb89ca7c36dd52be0ed">value</a>; </div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structsequence.html#a439227feff9d7f55384e8780cfc2eb82">   18</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structsequence.html#a439227feff9d7f55384e8780cfc2eb82">size</a>; </div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}<a class="code" href="moteur_8h.html#a81e59fb3dcd0050e9778318eb5fe6401">Sequence</a>;</div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keywordtype">int</span> <a class="code" href="moteur_8h.html#ab9c4503016265654671b332346c05391">init_queue</a>(<a class="code" href="structtoken.html">Liste</a> *queue);</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keywordtype">void</span> <a class="code" href="moteur_8h.html#a08b7afe7046b30e5813cbb2ae6d39af4">free_liste</a>(<a class="code" href="structtoken.html">Liste</a> *liste);</div><div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div><div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keywordtype">int</span> <a class="code" href="moteur_8h.html#aa3681801da9f818d1db5afc9c9e77d3a">add_left</a>(<a class="code" href="structtoken.html">Liste</a> *queue, <a class="code" href="structtoken.html">Liste</a> *tokens);</div><div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keywordtype">int</span> <a class="code" href="moteur_8h.html#af9e95c3ab1bfe3dc70a91feebfc60eee">add_right</a>(<a class="code" href="structtoken.html">Liste</a> *queue, <a class="code" href="structtoken.html">Liste</a> *tokens);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keywordtype">int</span> <a class="code" href="moteur_8h.html#a2a55eddddc44f7a8157dff2f3e0ad8ca">check_combinations</a>(<a class="code" href="structtoken.html">Liste</a> *lst);</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keywordtype">void</span> <a class="code" href="moteur_8h.html#a15496a089dce7b6203187f454ada1793">shift_commonshape_left</a>(<a class="code" href="structtoken.html">Liste</a> *lst, <a class="code" href="structtoken.html">Token</a> *tok);</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keywordtype">void</span> <a class="code" href="moteur_8h.html#a6716eac7372d07d281fc4c3b05a3f0fc">shift_commoncolor_left</a>(<a class="code" href="structtoken.html">Liste</a> *lst, <a class="code" href="structtoken.html">Token</a> *tok);</div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="structsequence_html"><div class="ttname"><a href="structsequence.html">sequence</a></div><div class="ttdef"><b>Definition:</b> moteur.h:15</div></div>
+<div class="ttc" id="moteur_8h_html_a2a55eddddc44f7a8157dff2f3e0ad8ca"><div class="ttname"><a href="moteur_8h.html#a2a55eddddc44f7a8157dff2f3e0ad8ca">check_combinations</a></div><div class="ttdeci">int check_combinations(Liste *lst)</div><div class="ttdef"><b>Definition:</b> moteur.c:89</div></div>
+<div class="ttc" id="structtoken_html"><div class="ttname"><a href="structtoken.html">token</a></div><div class="ttdef"><b>Definition:</b> threetogo.h:45</div></div>
+<div class="ttc" id="structsequence_html_ac4f474c82e82cbb89ca7c36dd52be0ed"><div class="ttname"><a href="structsequence.html#ac4f474c82e82cbb89ca7c36dd52be0ed">sequence::value</a></div><div class="ttdeci">int value</div><div class="ttdef"><b>Definition:</b> moteur.h:17</div></div>
+<div class="ttc" id="moteur_8h_html_a6716eac7372d07d281fc4c3b05a3f0fc"><div class="ttname"><a href="moteur_8h.html#a6716eac7372d07d281fc4c3b05a3f0fc">shift_commoncolor_left</a></div><div class="ttdeci">void shift_commoncolor_left(Liste *lst, Token *tok)</div><div class="ttdef"><b>Definition:</b> moteur.c:188</div></div>
+<div class="ttc" id="structsequence_html_a439227feff9d7f55384e8780cfc2eb82"><div class="ttname"><a href="structsequence.html#a439227feff9d7f55384e8780cfc2eb82">sequence::size</a></div><div class="ttdeci">int size</div><div class="ttdef"><b>Definition:</b> moteur.h:18</div></div>
+<div class="ttc" id="moteur_8h_html_a08b7afe7046b30e5813cbb2ae6d39af4"><div class="ttname"><a href="moteur_8h.html#a08b7afe7046b30e5813cbb2ae6d39af4">free_liste</a></div><div class="ttdeci">void free_liste(Liste *liste)</div><div class="ttdef"><b>Definition:</b> moteur.c:18</div></div>
+<div class="ttc" id="moteur_8h_html_ab9c4503016265654671b332346c05391"><div class="ttname"><a href="moteur_8h.html#ab9c4503016265654671b332346c05391">init_queue</a></div><div class="ttdeci">int init_queue(Liste *queue)</div><div class="ttdef"><b>Definition:</b> moteur.c:6</div></div>
+<div class="ttc" id="moteur_8h_html_a81e59fb3dcd0050e9778318eb5fe6401"><div class="ttname"><a href="moteur_8h.html#a81e59fb3dcd0050e9778318eb5fe6401">Sequence</a></div><div class="ttdeci">struct sequence Sequence</div></div>
+<div class="ttc" id="structsequence_html_ab5d5b1277dee91b9b524b62df22ae1c5"><div class="ttname"><a href="structsequence.html#ab5d5b1277dee91b9b524b62df22ae1c5">sequence::start</a></div><div class="ttdeci">Token * start</div><div class="ttdef"><b>Definition:</b> moteur.h:16</div></div>
+<div class="ttc" id="threetogo_8h_html"><div class="ttname"><a href="threetogo_8h.html">threetogo.h</a></div><div class="ttdoc">Contient les fonctions permettant de faire tourner le jeu. </div></div>
+<div class="ttc" id="moteur_8h_html_a15496a089dce7b6203187f454ada1793"><div class="ttname"><a href="moteur_8h.html#a15496a089dce7b6203187f454ada1793">shift_commonshape_left</a></div><div class="ttdeci">void shift_commonshape_left(Liste *lst, Token *tok)</div><div class="ttdef"><b>Definition:</b> moteur.c:168</div></div>
+<div class="ttc" id="moteur_8h_html_aa3681801da9f818d1db5afc9c9e77d3a"><div class="ttname"><a href="moteur_8h.html#aa3681801da9f818d1db5afc9c9e77d3a">add_left</a></div><div class="ttdeci">int add_left(Liste *queue, Liste *tokens)</div><div class="ttdef"><b>Definition:</b> moteur.c:28</div></div>
+<div class="ttc" id="moteur_8h_html_af9e95c3ab1bfe3dc70a91feebfc60eee"><div class="ttname"><a href="moteur_8h.html#af9e95c3ab1bfe3dc70a91feebfc60eee">add_right</a></div><div class="ttdeci">int add_right(Liste *queue, Liste *tokens)</div><div class="ttdef"><b>Definition:</b> moteur.c:48</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

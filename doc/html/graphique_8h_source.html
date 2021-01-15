@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Three To Go:  Fichier source de src/graphique.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Three To Go
+   &#160;<span id="projectnumber">0.1</span>
+   </div>
+   <div id="projectbrief">Jeu Three To Go</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">graphique.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="graphique_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef GRAPHIQUE_H</span></div><div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define GRAPHIQUE_H</span></div><div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;sys/time.h&gt;</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="graphique_8h.html#af5d065b74f0392b75a4443123049b27d">   12</a></span>&#160;<span class="preprocessor">#define RESO 50</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="graphique_8h.html#a598a3330b3c21701223ee0ca14316eca">   14</a></span>&#160;<span class="preprocessor">#define PI 3.14159265358979323846264338</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structcaseg.html">   17</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structcaseg.html">caseg</a>{</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structcaseg.html#afb52e720f5f0c483db5861f9e42e924e">   18</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structcaseg.html#afb52e720f5f0c483db5861f9e42e924e">col</a>; </div><div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structcaseg.html#a90c51449aa3fa2171db5fc1fa097856f">   19</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="structcaseg.html#a90c51449aa3fa2171db5fc1fa097856f">lig</a>; </div><div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;}<a class="code" href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a>;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<a class="code" href="structcaseg.html">Case</a> <a class="code" href="graphique_8h.html#af0d14d69d9ae275ee90f9a8a9bf157d7">mouse_to_square</a>(<span class="keywordtype">int</span> mousex, <span class="keywordtype">int</span> mousey);</div><div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graphique_8h.html#a44d79477a26c24f1badeedf2c158a22d">window_open</a>(<span class="keywordtype">int</span> larg, <span class="keywordtype">int</span> haut);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graphique_8h.html#a78adf81cc842d94b282b0d94abd187df">token_draw</a>(<a class="code" href="structtoken.html">Token</a> t, <a class="code" href="structcaseg.html">Case</a> c);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graphique_8h.html#a936e2fd551a080596bfaec3acbdf3913">token_draw_list</a>(<a class="code" href="structtoken.html">Liste</a> lst_tokens, <span class="keywordtype">int</span> nb_tokens, <a class="code" href="structcaseg.html">Case</a> cible);</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graphique_8h.html#affb998543e380f0811795e05bec467af">button_add_draw</a>(<a class="code" href="structcaseg.html">Case</a> cible, <span class="keywordtype">char</span> dir) ;</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">int</span> <a class="code" href="graphique_8h.html#a8c919d1729a155e8ef29aa63f6aa8d5b">button_add_check</a>(<span class="keywordtype">int</span> sizex, <span class="keywordtype">int</span> sizey, <a class="code" href="structcaseg.html">Case</a> cible);</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keywordtype">int</span> <a class="code" href="graphique_8h.html#adfda676b195bfd0ff6e62ba605956ca5">token_select_check</a>(<span class="keywordtype">int</span> sizex, <span class="keywordtype">int</span> sizey, <span class="keywordtype">int</span> nb_tokens, <a class="code" href="structcaseg.html">Case</a> cible, <a class="code" href="structtoken.html">Liste</a> lst_tokens);</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graphique_8h.html#a557e46a7977c18852fb1c79326c73127">token_select_draw</a>(<a class="code" href="structcaseg.html">Case</a> cible, <a class="code" href="structtoken.html">Liste</a> lst_tokens, <span class="keywordtype">int</span> nb_tokens, <span class="keywordtype">int</span> position);</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graphique_8h.html#a9f2adad3a9c66fd7719f6053cf373836">score_cat</a>(<span class="keywordtype">char</span>* message, <span class="keywordtype">int</span> score);</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graphique_8h.html#a7f178a63c6591323b925ab82c7dc25a3">timer_cat</a>(<span class="keywordtype">char</span>* message, <span class="keywordtype">int</span> timer);</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordtype">float</span> <a class="code" href="graphique_8h.html#ab5b61871abce67454749ae3ae3f6bad0">time_usec</a>(<span class="keyword">struct</span> timeval debut);</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;</div><div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graphique_8h.html#a0429b5680e4dd0a1f4d3fafa97b57707">refresh_screen</a>(<span class="keywordtype">int</span> sizex, <span class="keywordtype">int</span> sizey, <a class="code" href="structgame.html">Game</a> g, <a class="code" href="structcaseg.html">Case</a> cible);</div><div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;</div><div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keywordtype">void</span> <a class="code" href="graphique_8h.html#a376d99140665e03b4f6edffbcba1a039">clock_draw</a>(<a class="code" href="structcaseg.html">Case</a> cible, <span class="keywordtype">float</span> duree);</div><div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;</div><div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif</span></div><div class="ttc" id="structcaseg_html"><div class="ttname"><a href="structcaseg.html">caseg</a></div><div class="ttdef"><b>Definition:</b> graphique.h:17</div></div>
+<div class="ttc" id="graphique_8h_html_a7f178a63c6591323b925ab82c7dc25a3"><div class="ttname"><a href="graphique_8h.html#a7f178a63c6591323b925ab82c7dc25a3">timer_cat</a></div><div class="ttdeci">void timer_cat(char *message, int timer)</div><div class="ttdef"><b>Definition:</b> graphique.c:168</div></div>
+<div class="ttc" id="graphique_8h_html_affb998543e380f0811795e05bec467af"><div class="ttname"><a href="graphique_8h.html#affb998543e380f0811795e05bec467af">button_add_draw</a></div><div class="ttdeci">void button_add_draw(Case cible, char dir)</div><div class="ttdef"><b>Definition:</b> graphique.c:75</div></div>
+<div class="ttc" id="graphique_8h_html_a3d1c287ecdf7291464a27302335927b5"><div class="ttname"><a href="graphique_8h.html#a3d1c287ecdf7291464a27302335927b5">Case</a></div><div class="ttdeci">struct caseg Case</div></div>
+<div class="ttc" id="graphique_8h_html_a376d99140665e03b4f6edffbcba1a039"><div class="ttname"><a href="graphique_8h.html#a376d99140665e03b4f6edffbcba1a039">clock_draw</a></div><div class="ttdeci">void clock_draw(Case cible, float duree)</div><div class="ttdef"><b>Definition:</b> graphique.c:234</div></div>
+<div class="ttc" id="graphique_8h_html_a936e2fd551a080596bfaec3acbdf3913"><div class="ttname"><a href="graphique_8h.html#a936e2fd551a080596bfaec3acbdf3913">token_draw_list</a></div><div class="ttdeci">void token_draw_list(Liste lst_tokens, int nb_tokens, Case cible)</div><div class="ttdef"><b>Definition:</b> graphique.c:57</div></div>
+<div class="ttc" id="structtoken_html"><div class="ttname"><a href="structtoken.html">token</a></div><div class="ttdef"><b>Definition:</b> threetogo.h:45</div></div>
+<div class="ttc" id="graphique_8h_html_a0429b5680e4dd0a1f4d3fafa97b57707"><div class="ttname"><a href="graphique_8h.html#a0429b5680e4dd0a1f4d3fafa97b57707">refresh_screen</a></div><div class="ttdeci">void refresh_screen(int sizex, int sizey, Game g, Case cible)</div><div class="ttdef"><b>Definition:</b> graphique.c:197</div></div>
+<div class="ttc" id="graphique_8h_html_af0d14d69d9ae275ee90f9a8a9bf157d7"><div class="ttname"><a href="graphique_8h.html#af0d14d69d9ae275ee90f9a8a9bf157d7">mouse_to_square</a></div><div class="ttdeci">Case mouse_to_square(int mousex, int mousey)</div><div class="ttdef"><b>Definition:</b> graphique.c:8</div></div>
+<div class="ttc" id="graphique_8h_html_a557e46a7977c18852fb1c79326c73127"><div class="ttname"><a href="graphique_8h.html#a557e46a7977c18852fb1c79326c73127">token_select_draw</a></div><div class="ttdeci">void token_select_draw(Case cible, Liste lst_tokens, int nb_tokens, int position)</div><div class="ttdef"><b>Definition:</b> graphique.c:125</div></div>
+<div class="ttc" id="structgame_html"><div class="ttname"><a href="structgame.html">game</a></div><div class="ttdef"><b>Definition:</b> threetogo.h:65</div></div>
+<div class="ttc" id="graphique_8h_html_a44d79477a26c24f1badeedf2c158a22d"><div class="ttname"><a href="graphique_8h.html#a44d79477a26c24f1badeedf2c158a22d">window_open</a></div><div class="ttdeci">void window_open(int larg, int haut)</div><div class="ttdef"><b>Definition:</b> graphique.c:15</div></div>
+<div class="ttc" id="graphique_8h_html_ab5b61871abce67454749ae3ae3f6bad0"><div class="ttname"><a href="graphique_8h.html#ab5b61871abce67454749ae3ae3f6bad0">time_usec</a></div><div class="ttdeci">float time_usec(struct timeval debut)</div><div class="ttdef"><b>Definition:</b> graphique.c:187</div></div>
+<div class="ttc" id="graphique_8h_html_a78adf81cc842d94b282b0d94abd187df"><div class="ttname"><a href="graphique_8h.html#a78adf81cc842d94b282b0d94abd187df">token_draw</a></div><div class="ttdeci">void token_draw(Token t, Case c)</div><div class="ttdef"><b>Definition:</b> graphique.c:21</div></div>
+<div class="ttc" id="structcaseg_html_a90c51449aa3fa2171db5fc1fa097856f"><div class="ttname"><a href="structcaseg.html#a90c51449aa3fa2171db5fc1fa097856f">caseg::lig</a></div><div class="ttdeci">int lig</div><div class="ttdef"><b>Definition:</b> graphique.h:19</div></div>
+<div class="ttc" id="graphique_8h_html_a8c919d1729a155e8ef29aa63f6aa8d5b"><div class="ttname"><a href="graphique_8h.html#a8c919d1729a155e8ef29aa63f6aa8d5b">button_add_check</a></div><div class="ttdeci">int button_add_check(int sizex, int sizey, Case cible)</div><div class="ttdef"><b>Definition:</b> graphique.c:92</div></div>
+<div class="ttc" id="structcaseg_html_afb52e720f5f0c483db5861f9e42e924e"><div class="ttname"><a href="structcaseg.html#afb52e720f5f0c483db5861f9e42e924e">caseg::col</a></div><div class="ttdeci">int col</div><div class="ttdef"><b>Definition:</b> graphique.h:18</div></div>
+<div class="ttc" id="graphique_8h_html_adfda676b195bfd0ff6e62ba605956ca5"><div class="ttname"><a href="graphique_8h.html#adfda676b195bfd0ff6e62ba605956ca5">token_select_check</a></div><div class="ttdeci">int token_select_check(int sizex, int sizey, int nb_tokens, Case cible, Liste lst_tokens)</div><div class="ttdef"><b>Definition:</b> graphique.c:108</div></div>
+<div class="ttc" id="graphique_8h_html_a9f2adad3a9c66fd7719f6053cf373836"><div class="ttname"><a href="graphique_8h.html#a9f2adad3a9c66fd7719f6053cf373836">score_cat</a></div><div class="ttdeci">void score_cat(char *message, int score)</div><div class="ttdef"><b>Definition:</b> graphique.c:152</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>
