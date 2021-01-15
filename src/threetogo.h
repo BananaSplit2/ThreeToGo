@@ -27,7 +27,7 @@
 /** Fréquence de rafraichissement du jeu par seconde */
 #define FRAME_RATE 30
 /** Longueur de la fenêtre */
-#define SIZEX 1500
+#define SIZEX 1600
 /** Largeur de la fenêtre */
 #define SIZEY ((9*SIZEX)/16)
 /** Nombre maximum de tokens dans la liste principale */
