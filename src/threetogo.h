@@ -6,6 +6,8 @@
 #ifndef THREETOGO_H
 #define THREETOGO_H
 
+#include "MLV/MLV_image.h"
+
 /** Entier correspondant à la couleur rouge */
 #define RED 0
 /** Entier correspondant à la couleur vert */
@@ -88,7 +90,7 @@ void game_free(Game *game);
  * @param game adresse vers une partie
  * @return 0 en cas d'erreur, 1 sinon
  */
-int game_loop(Game *game);
+int game_loop(Game *game, MLV_Image *images[]);
 
 
 #endif

@@ -5,6 +5,26 @@
 #include "graphique.h"
 #include <math.h>
 
+int images_init(MLV_Image *images[]) {
+	images[0] = MLV_load_image("assets/button_left.png");
+	MLV_resize_image_with_proportions(images[0], RESO*3, RESO);
+
+	images[1] = MLV_load_image("assets/button_right.png");
+	MLV_resize_image_with_proportions(images[1], RESO*3, RESO);
+
+	images[2] = MLV_load_image("assets/bg.jpg");
+	MLV_resize_image(images[2], SIZEX, SIZEY);
+
+	return 3;
+}
+
+void images_free(MLV_Image *images[], int taille) {
+	int i;
+	for (i = 0 ; i < taille ; i++) {
+		MLV_free_image(images[i]);
+	}
+}
+
 Case mouse_to_square(int mousex, int mousey) {
 	
 	Case cible = {mousex/RESO, mousey/RESO};
@@ -72,18 +92,16 @@ void token_draw_list(Liste lst_tokens, int nb_tokens, Case cible) {
 	}
 }
 
-void button_add_draw(Case cible, char dir) {
+void button_add_draw(Case cible, char dir, MLV_Image *images[]) {
 	
 	switch(dir) {
 		/**bouton ajout à gauche**/
 		case 'l' :
-			MLV_draw_filled_rectangle(cible.col*RESO, cible.lig*RESO, RESO*3, RESO, MLV_COLOR_CYAN);
-			MLV_draw_text((cible.col+1.2)*RESO, (cible.lig+0.3)*RESO, "<----", MLV_COLOR_BLACK);
+			MLV_draw_image(images[0], cible.col*RESO, cible.lig*RESO);
 			break;
 		/**bouton ajout à droite**/
 		case 'r' :
-			MLV_draw_filled_rectangle(cible.col*RESO, cible.lig*RESO, RESO*3, RESO, MLV_COLOR_CYAN);
-			MLV_draw_text((cible.col+1.2)*RESO, (cible.lig+0.3)*RESO, "---->", MLV_COLOR_BLACK);
+			MLV_draw_image(images[1], cible.col*RESO, cible.lig*RESO);
 			break;
 			
 	}
@@ -166,10 +184,9 @@ void score_cat(char* message, int score) {
 }
 
 void timer_cat(char* message, int timer) {
-	
 	char timermess[100];
-	sprintf(timermess, "%d", timer);
-	
+	sprintf(timermess, "%d", DUREE_MAX - timer);
+
 	int ind = 0;
 	char letter = timermess[ind];
 	while(letter != '\0' && ind < 90) {
@@ -177,11 +194,6 @@ void timer_cat(char* message, int timer) {
 		ind += 1;
 		letter = timermess[ind];
 	}
-	
-	/**symbole de secondes**/
-	message[ind+8] = ' ';
-	message[ind+9] = 's';
-	message[ind+10] = letter;
 }
 
 float time_usec(struct timeval debut) {
@@ -194,12 +206,16 @@ float time_usec(struct timeval debut) {
 	return usec;
 }
 
-void refresh_screen(Game g, Case cible) {
+void refresh_screen(Game g, Case cible, MLV_Image *images[]) {
 	
+	/* Réinitialisation de l'écran */
 	MLV_clear_window(MLV_COLOR_BLACK);
-	
+
+	/* Affichage du fond */
+	MLV_draw_image(images[2], 0, 0);
+
 	Case origin = {2, 1}, caseg = {2, 3}, cased = {SIZEX/RESO - 5, 3};
-	char message_s[100] = "Score = ", message_t[20] = "Timer = ";
+	char message_s[100] = "Score = ", message_t[20] = "Temps : ";
 	int timer_int = g.timer;
 	
 	/**dessin de la queue et du cadre de sélection de l'élément en attente**/
@@ -208,8 +224,8 @@ void refresh_screen(Game g, Case cible) {
 
 	/**boutons d'ajout gauche/droite**/
 	if(g.nb_tokens < MAX_TOKENS) {
-		button_add_draw(caseg, 'l');
-		button_add_draw(cased, 'r');
+		button_add_draw(caseg, 'l', images);
+		button_add_draw(cased, 'r', images);
 	}
 	
 	/**dessin centré de la liste des jetons**/
@@ -223,33 +239,29 @@ void refresh_screen(Game g, Case cible) {
 	score_cat(message_s, g.score);
 	MLV_draw_text(0, SIZEY - RESO, message_s, MLV_COLOR_CYAN);
 	timer_cat(message_t, timer_int);
-	MLV_draw_text(0, SIZEY - RESO*2, message_t, MLV_COLOR_CYAN);
+	MLV_draw_text((MAX_TOKENS-2)*RESO, RESO*2.1, message_t, MLV_COLOR_CYAN);
 	
 	/**dessin de l'horloge pour timer visuel**/
 	origin.lig = 1;
-	origin.col = SIZEX/RESO-2;
+	origin.col = MAX_TOKENS-2;
 	clock_draw(origin, g.timer);
-	
-	MLV_actualise_window();
 }
 
 void clock_draw(Case cible, float duree) {
 	
-	MLV_draw_circle((cible.col+0.5)*RESO, (cible.lig+0.5)*RESO, RESO/1.5, MLV_COLOR_CYAN);
+	MLV_draw_circle((cible.col+0.5)*RESO, (cible.lig+0.5)*RESO, RESO/2, MLV_COLOR_CYAN);
 	
 	int i;
 	/**traits rémanents pour portion de disque**/
 	for(i=0; i<duree; i++) {
 		MLV_draw_line((cible.col+0.5)*RESO, (cible.lig+0.5)*RESO, 
-					(cible.col+0.5)*RESO + (RESO/2.5)*sin(i/(DUREE_MAX*1.0) * 2*PI), 
-					(cible.lig+0.5)*RESO - (RESO/2.5)*cos(i/(DUREE_MAX*1.0) * 2*PI), 
+					(cible.col+0.5)*RESO + (RESO/3)*sin(i/(DUREE_MAX*1.0) * 2*PI), 
+					(cible.lig+0.5)*RESO - (RESO/3)*cos(i/(DUREE_MAX*1.0) * 2*PI), 
 						MLV_COLOR_CYAN);
 	}
 	/**dessin de l'aiguille de l'horloge**/
 	MLV_draw_line((cible.col+0.5)*RESO, (cible.lig+0.5)*RESO, 
-					(cible.col+0.5)*RESO + (RESO/1.75)*sin(duree/(DUREE_MAX*1.0) * 2*PI), 
-					(cible.lig+0.5)*RESO - (RESO/1.75)*cos(duree/(DUREE_MAX*1.0) * 2*PI), 
+					(cible.col+0.5)*RESO + (RESO/2.25)*sin(duree/(DUREE_MAX*1.0) * 2*PI), 
+					(cible.lig+0.5)*RESO - (RESO/2.25)*cos(duree/(DUREE_MAX*1.0) * 2*PI), 
 						MLV_COLOR_CYAN);
 }
-
-

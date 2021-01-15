@@ -7,6 +7,7 @@
 #define GRAPHIQUE_H
 
 #include <sys/time.h>
+#include "MLV/MLV_image.h"
 
 /** Taille d'une case en pixels */
 #define RESO (SIZEX/MAX_TOKENS)
@@ -19,6 +20,9 @@ typedef struct caseg{
     int lig; /**< Ligne */
 }Case;
 
+int images_init(MLV_Image *images[]);
+
+void images_free(MLV_Image *images[], int taille);
 
 /** 
  * Transforme le pixel d'un clic de souris en coordonnées de case 
@@ -55,7 +59,7 @@ void token_draw_list(Liste lst_tokens, int nb_tokens, Case cible);
  * @param cible structure Case où dessiner
  * @param dir caractère
  */
-void button_add_draw(Case cible, char dir) ;
+void button_add_draw(Case cible, char dir, MLV_Image *images[]) ;
 
 /** 
  * Vérifie si un bouton d'ajout de jeton (gauche ou droit) a été cliqué
@@ -108,7 +112,7 @@ float time_usec(struct timeval debut);
  * @param g structure Game des paramètres de la partie
  * @param cible structure Case de la case cliquée en dernier
  */
-void refresh_screen(Game g, Case cible);
+void refresh_screen(Game g, Case cible, MLV_Image *images[]);
 
 /** 
  * Dessine une horloge pour une certaine durée 
