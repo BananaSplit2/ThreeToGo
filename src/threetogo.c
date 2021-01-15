@@ -40,7 +40,7 @@ void game_free(Game *game) {
 	game->lst_tokens = NULL;
 }
 
-int game_loop(Game *game) {
+int game_loop(Game *game, MLV_Image *images[]) {
 	int check = 0;
 	
 	int mousex, mousey; /* Stocke des coordonnées de clic */
@@ -122,7 +122,7 @@ int game_loop(Game *game) {
 		} while (event != MLV_NONE);
 
 		/* Rafraichissement de l'écran */
-		refresh_screen(*game, cible); 
+		refresh_screen(*game, cible, images); 
 		MLV_actualise_window();
 		MLV_delay_according_to_frame_rate();
 
