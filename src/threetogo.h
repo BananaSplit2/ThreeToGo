@@ -27,9 +27,9 @@
 /** Fréquence de rafraichissement du jeu par seconde */
 #define FRAME_RATE 30
 /** Longueur de la fenêtre */
-#define SIZEX 1000
+#define SIZEX 1500
 /** Largeur de la fenêtre */
-#define SIZEY 500
+#define SIZEY ((9*SIZEX)/16)
 /** Nombre maximum de tokens dans la liste principale */
 #define MAX_TOKENS 16
 /** Durée d'une partie en secondes */
@@ -88,5 +88,6 @@ void game_free(Game *game);
  * @return game adresse vers une partie
  */
 int game_loop(Game *game);
+
 
 #endif

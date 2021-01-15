@@ -69,15 +69,16 @@ int game_loop(Game *game) {
 				if (attend_clique == 0) {
 					cible = mouse_to_square(mousex, mousey);
 			
-					/* Si le clic est sur un bouton d'ajout */
-					switch(button_add_check(cible)) {
-						case 1 : 
-							add_left(game->queue, game->lst_tokens); 
-							break;
-						case 2 : 
-							add_right(game->queue, game->lst_tokens); 
-							break;
-					}
+					/* Si le clic est sur un bouton d'ajout et qu'il reste de la place */
+					if(game->nb_tokens < MAX_TOKENS)
+						switch(button_add_check(cible)) {
+							case 1 : 
+								add_left(game->queue, game->lst_tokens); 
+								break;
+							case 2 : 
+								add_right(game->queue, game->lst_tokens); 
+								break;
+						}
 					
 					/* Si le clic est sur un jeton de la liste */
 					if ((check = token_select_check(game->nb_tokens, cible, *(game->lst_tokens))) != 0) {
