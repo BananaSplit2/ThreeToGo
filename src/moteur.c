@@ -15,6 +15,8 @@ int init_queue(Liste *queue) {
 }
 
 void free_liste(Liste *liste) {
+    if (*liste == NULL)
+        return;
     Token *tmp, *index = *liste;
     do {
         tmp = index->next;
