@@ -9,7 +9,7 @@
 #include <sys/time.h>
 
 /** Taille d'une case en pixels */
-#define RESO 50
+#define RESO (SIZEX/MAX_TOKENS)
 /** Constante mathématique pi */
 #define PI 3.14159265358979323846264338
 

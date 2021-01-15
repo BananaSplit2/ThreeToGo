@@ -99,7 +99,7 @@ int button_add_check(Case cible) {
 			return 1;
 		
 		/**bouton ajout à droite**/
-		if(cible.col > SIZEX/RESO - 6 && cible.col < SIZEX/RESO - 2)
+		if(cible.col > MAX_TOKENS - 6 && cible.col < MAX_TOKENS - 2)
 			return 2;
 	}
 	return 0;
@@ -111,9 +111,9 @@ int token_select_check(int nb_tokens, Case cible, Liste lst_tokens) {
 	if(cible.lig == 5) {
 		
 		/**calcule de la position du token sélectionné**/
-		if(cible.col > (SIZEX/2)/RESO - nb_tokens/2 -1 && cible.col < (SIZEX/2)/RESO + nb_tokens/2 +nb_tokens%2) {
+		if(cible.col > MAX_TOKENS/2 - nb_tokens/2 -1 && cible.col < MAX_TOKENS/2 + nb_tokens/2 +nb_tokens%2) {
 			
-			position = cible.col - (SIZEX/2)/RESO + nb_tokens/2 +1;
+			position = cible.col - MAX_TOKENS/2 + nb_tokens/2 +1;
 			
 			return position;
 		}
@@ -207,8 +207,10 @@ void refresh_screen(Game g, Case cible) {
 	token_draw_list(*(g.queue), 5, origin);
 
 	/**boutons d'ajout gauche/droite**/
-	button_add_draw(caseg, 'l');
-	button_add_draw(cased, 'r');
+	if(g.nb_tokens < MAX_TOKENS) {
+		button_add_draw(caseg, 'l');
+		button_add_draw(cased, 'r');
+	}
 	
 	/**dessin centré de la liste des jetons**/
 	origin.lig = 5;
@@ -249,3 +251,5 @@ void clock_draw(Case cible, float duree) {
 					(cible.lig+0.5)*RESO - (RESO/1.75)*cos(duree/(DUREE_MAX*1.0) * 2*PI), 
 						MLV_COLOR_CYAN);
 }
+
+
