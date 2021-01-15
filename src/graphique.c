@@ -89,7 +89,7 @@ void button_add_draw(Case cible, char dir) {
 	}
 }
 
-int button_add_check(int sizex, int sizey, Case cible) {
+int button_add_check(Case cible) {
 	
 	/**ligne des boutons d'ajout**/
 	if(cible.lig == 3) {
@@ -99,21 +99,21 @@ int button_add_check(int sizex, int sizey, Case cible) {
 			return 1;
 		
 		/**bouton ajout à droite**/
-		if(cible.col > sizex/RESO - 6 && cible.col < sizex/RESO - 2)
+		if(cible.col > SIZEX/RESO - 6 && cible.col < SIZEX/RESO - 2)
 			return 2;
 	}
 	return 0;
 }
 
-int token_select_check(int sizex, int sizey, int nb_tokens, Case cible, Liste lst_tokens) {
+int token_select_check(int nb_tokens, Case cible, Liste lst_tokens) {
 	
 	int position;
 	if(cible.lig == 5) {
 		
 		/**calcule de la position du token sélectionné**/
-		if(cible.col > (sizex/2)/RESO - nb_tokens/2 -1 && cible.col < (sizex/2)/RESO + nb_tokens/2 +nb_tokens%2) {
+		if(cible.col > (SIZEX/2)/RESO - nb_tokens/2 -1 && cible.col < (SIZEX/2)/RESO + nb_tokens/2 +nb_tokens%2) {
 			
-			position = cible.col - (sizex/2)/RESO + nb_tokens/2 +1;
+			position = cible.col - (SIZEX/2)/RESO + nb_tokens/2 +1;
 			
 			return position;
 		}
@@ -194,11 +194,11 @@ float time_usec(struct timeval debut) {
 	return usec;
 }
 
-void refresh_screen(int sizex, int sizey, Game g, Case cible) {
+void refresh_screen(Game g, Case cible) {
 	
 	MLV_clear_window(MLV_COLOR_BLACK);
 	
-	Case origin = {2, 1}, caseg = {2, 3}, cased = {sizex/RESO - 5, 3};
+	Case origin = {2, 1}, caseg = {2, 3}, cased = {SIZEX/RESO - 5, 3};
 	char message_s[100] = "Score = ", message_t[20] = "Timer = ";
 	int timer_int = g.timer;
 	
@@ -212,20 +212,20 @@ void refresh_screen(int sizex, int sizey, Game g, Case cible) {
 	
 	/**dessin centré de la liste des jetons**/
 	origin.lig = 5;
-	origin.col = (sizex/2)/RESO - g.nb_tokens/2 -1;
+	origin.col = (SIZEX/2)/RESO - g.nb_tokens/2 -1;
 	token_draw_list(*g.lst_tokens, g.nb_tokens, origin);
-	int position = token_select_check(sizex, sizey, g.nb_tokens, cible, *g.lst_tokens);
+	int position = token_select_check(g.nb_tokens, cible, *g.lst_tokens);
 	token_select_draw(cible, *g.lst_tokens, g.nb_tokens, position);
 	
 	/**dessin des informations de l'interface**/
 	score_cat(message_s, g.score);
-	MLV_draw_text(0, sizey - RESO, message_s, MLV_COLOR_CYAN);
+	MLV_draw_text(0, SIZEY - RESO, message_s, MLV_COLOR_CYAN);
 	timer_cat(message_t, timer_int);
-	MLV_draw_text(0, sizey - RESO*2, message_t, MLV_COLOR_CYAN);
+	MLV_draw_text(0, SIZEY - RESO*2, message_t, MLV_COLOR_CYAN);
 	
 	/**dessin de l'horloge pour timer visuel**/
 	origin.lig = 1;
-	origin.col = sizex/RESO-2;
+	origin.col = SIZEX/RESO-2;
 	clock_draw(origin, g.timer);
 	
 	MLV_actualise_window();

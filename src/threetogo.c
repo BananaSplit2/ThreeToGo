@@ -1,10 +1,10 @@
+#include <MLV/MLV_all.h>
+#include <time.h>
+#include <sys/time.h>
 #include "threetogo.h"
 #include "graphique.h"
 #include "moteur.h"
 #include "token.h"
-#include <time.h>
-#include <MLV/MLV_all.h>
-#include <sys/time.h>
 
 int game_init(Game *game) {
 	/* Allocations des listes */
@@ -43,25 +43,25 @@ void game_free(Game *game) {
 int game_loop(Game *game) {
 	int check = 0;
 	
-	int mousex, mousey;
-	Case cible = {0, 0}, ciblebis;
+	int mousex, mousey; /* Stocke des coordonnées de clic */
+	Case cible = {0, 0}, ciblebis; /* Stocke des coordonées de case */
 
-	Token *token_clique;
-	int attend_clique = 0;
+	Token *token_clique; /* Stocke l'adresse d'un token qui a été cliqué */
+	int attend_clique = 0; /* Booléen indiquant un second clic est attendu après avoir cliqué sur un token */
 	
+	/* Stocke un temps de manière précise pour l'horloge et l'initialise */
 	struct timeval debut;
 	gettimeofday(&debut, NULL);
-	MLV_change_frame_rate(FRAME_RATE);
+
 	MLV_Event event;
 	MLV_Button_state button;
+
 	/* Boucle principale */
 	while (time_usec(debut) < DUREE_MAX) {
-		
-		game->timer = time_usec(debut);
-		refresh_screen(SIZEX, SIZEY, *game, cible);
 
-		/* Gestion de la file d'évènement */
+		/* Traitement de la file d'évènement */
 		do {
+			/* Récuparation du prochain évènement sur la liste */
 			event = MLV_get_event(NULL, NULL, NULL, NULL, NULL, &mousex, &mousey, NULL, &button);
 
 			/* Clic de bouton */
@@ -70,49 +70,59 @@ int game_loop(Game *game) {
 					cible = mouse_to_square(mousex, mousey);
 			
 					/* Si le clic est sur un bouton d'ajout */
-					switch((check = button_add_check(SIZEX, SIZEY, cible))) {
-						
-						case 0 : break;
-						case 1 : add_left(game->queue, game->lst_tokens); game->nb_tokens += 1; break;
-						case 2 : add_right(game->queue, game->lst_tokens); game->nb_tokens += 1; break;
+					switch(button_add_check(cible)) {
+						case 1 : 
+							add_left(game->queue, game->lst_tokens); 
+							break;
+						case 2 : 
+							add_right(game->queue, game->lst_tokens); 
+							break;
 					}
 					
 					/* Si le clic est sur un jeton de la liste */
-					if((check = token_select_check(SIZEX, SIZEY, game->nb_tokens, cible, *(game->lst_tokens)))) {
+					if ((check = token_select_check(game->nb_tokens, cible, *(game->lst_tokens))) != 0) {
+						/* On cherche et stocke l'adresse du token cliqué */
 						token_clique = *(game->lst_tokens);
-						if(check != game->nb_tokens) {
+						if (check != game->nb_tokens) {
 							int i;
-							for(i=0; i<check; i++) {
+							for(i = 0 ; i < check ; i++) {
 								token_clique = token_clique->next;
 							}
 						}
+						/* On attend un second clic */
 						attend_clique = 1;
 					}
 				}
 				else if (attend_clique == 1) {
 					ciblebis = mouse_to_square(mousex, mousey);
 					
-					if(ciblebis.col == cible.col) {
-						
+					if (ciblebis.col == cible.col) {
 						/* Choix du haut : on décale les formes sur la gauche */
-						if(ciblebis.lig == cible.lig - 1) {
+						if (ciblebis.lig == cible.lig - 1) {
 							shift_commoncolor_left(game->lst_tokens, token_clique);
 						}
 						/* Choix du bas : on décale les couleurs sur la gauche */
-						else if(ciblebis.lig == cible.lig + 1) {
+						else if (ciblebis.lig == cible.lig + 1) {
 							shift_commonshape_left(game->lst_tokens, token_clique);
 						}
 					}
 					cible = mouse_to_square(0, 0);
 					attend_clique = 0;
 				}
-				game->score += check_combinations(game->lst_tokens);
+
+				/* Vérification des combinaisons */
+				game->score += check_combinations(game->lst_tokens, 1);
 				game->nb_tokens = length(*(game->lst_tokens));
 			}
 		} while (event != MLV_NONE);
 
+		/* Rafraichissement de l'écran */
+		refresh_screen(*game, cible); 
 		MLV_actualise_window();
 		MLV_delay_according_to_frame_rate();
+
+		/* Met à jour le timer de la partie */
+		game->timer = time_usec(debut); 
 	}
 	
 	printf("\n--GAME OVER--\nScore final = %d\n\n", game->score);

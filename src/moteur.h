@@ -50,8 +50,10 @@ int add_right(Liste *queue, Liste *tokens);
 /**
  * Cherche les chaines de plus de 3 tokens consécutifs d'une même couleur ou forme,
  * les retire et renvoie le score associé aux différentes chaines retirées
+ * @param lst liste de tokens
+ * @param mul multiplicateur du score renvoyé 
  */
-int check_combinations(Liste *lst);
+int check_combinations(Liste *lst, int mul);
 
 /**
  * Effectue un décalage circulaire vers la gauche des tokens de la même forme

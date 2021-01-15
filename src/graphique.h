@@ -59,23 +59,19 @@ void button_add_draw(Case cible, char dir) ;
 
 /** 
  * Vérifie si un bouton d'ajout de jeton (gauche ou droit) a été cliqué
- * @param sizex entier largeur de la fenêtre en pixel
- * @param sizey entier hauteur de la fenêtre en pixel
  * @param cible case cliquée originalement
  * @return 0 si non, 1 si gauche, 2 si droit
  */
-int button_add_check(int sizex, int sizey, Case cible);
+int button_add_check(Case cible);
 
 /** 
  * Vérifie si un token est cliqué 
- * @param sizex entier largeur de la fenêtre en pixels
- * @param sizey entier hauteur de la fenêtre en pixels
  * @param nb_tokens entier du nombre de tokens alignés
  * @param cible structure Case où dessiner
  * @param lst_tokens structure Liste des tokens alignés
  * @return position entier du n-ième token sélectionné
  */
-int token_select_check(int sizex, int sizey, int nb_tokens, Case cible, Liste lst_tokens);
+int token_select_check(int nb_tokens, Case cible, Liste lst_tokens);
 
 /**
  * Si la position donnée est strictement positive, dessine la sélection
@@ -109,12 +105,10 @@ float time_usec(struct timeval debut);
 
 /** 
  * Rafraichit l'affichage de base du jeu 
- * @param sizex entier largeur de la fenêtre
- * @param sizey entier hauteur de la fenêtre
  * @param g structure Game des paramètres de la partie
  * @param cible structure Case de la case cliquée en dernier
  */
-void refresh_screen(int sizex, int sizey, Game g, Case cible);
+void refresh_screen(Game g, Case cible);
 
 /** 
  * Dessine une horloge pour une certaine durée 

@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include "moteur.h"
 #include "token.h"
-#include <stdio.h>
 
 int init_queue(Liste *queue) {
     int i;
@@ -86,7 +85,7 @@ static void add_addresses(Token *start, int n, Token *array[], int *size) {
     }
 }
 
-int check_combinations(Liste *lst) {
+int check_combinations(Liste *lst, int mul) {
     /* Liste vide */
     if (*lst == NULL) {
         return 0;
@@ -103,6 +102,7 @@ int check_combinations(Liste *lst) {
     Sequence colors = {index, index->color, 1};
     Sequence shapes = {index, index->shape, 1};
 
+    /* Parcours de la liste de tokens pour chercher des séquences d'au moins 3 tokens de la même couleur/forme */
     index = index->next;
 
     while (index != (*lst)->next) {
@@ -158,11 +158,12 @@ int check_combinations(Liste *lst) {
         free(to_delete[i]);
     }
 
+    /* Appel récursif si des tokens ont été supprimés pour vérifier les combos */
     if (score > 0) {
-        score += check_combinations(lst);
+        score += check_combinations(lst, mul * 2);
     }
 
-    return score;
+    return score * mul;
 }
 
 void shift_commonshape_left(Liste *lst, Token *tok) {

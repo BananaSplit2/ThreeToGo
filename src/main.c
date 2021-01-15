@@ -12,6 +12,7 @@ int main(void) {
     Game game;
     game_init(&game);
     window_open(SIZEX, SIZEY);
+    MLV_change_frame_rate(FRAME_RATE);
 
     /* Boucle principale */
     game_loop(&game);
