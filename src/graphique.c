@@ -213,7 +213,7 @@ void refresh_screen(int sizex, int sizey, Game g, Case cible) {
 	
 	/**dessin de la queue et du cadre de sélection de l'élément en attente**/
 	MLV_draw_rectangle((origin.col+5)*RESO, origin.lig*RESO, RESO, RESO, MLV_COLOR_GRAY);
-	token_draw_list(*g.queue, 5, origin);
+	token_draw_list(*(g.queue), 5, origin);
 	
 	/**boutons d'ajout gauche/droite**/
 	button_add_draw(caseg, 'l');

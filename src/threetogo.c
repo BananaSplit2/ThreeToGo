@@ -6,15 +6,47 @@
 #include <MLV/MLV_all.h>
 #include <sys/time.h>
 
+int init_game(Game *game) {
+	/* Allocations des listes */
+	game->queue = malloc(sizeof(Liste));
+	if (game->queue == NULL)
+		return 0;
+	
+	game->lst_tokens = malloc(sizeof(Liste));
+	if (game->lst_tokens == NULL) {
+		free(game->queue);
+		return 0;
+	}
 
-int main(void) {
+	/* Initialisation du jeu */
+	*(game->queue) = NULL;
+	if (init_queue(game->queue) != 1) {
+		return 0;
+	}
+	*(game->lst_tokens) = NULL;
+	game->nb_tokens = 0;
+	game->score = 0;
+	game->timer = 0;
+
+	return 1;
+}
+
+void free_game(Game *game) {
+	free_liste(game->queue);
+	free_liste(game->lst_tokens);
+	free(game->queue);
+	free(game->lst_tokens);
+	game->queue = NULL;
+	game->lst_tokens = NULL;
+}
+
+int game_loop(void) {
 	
 	int sizex = 1000, sizey = 500;
 	
-	Liste queue = NULL, lst_tokens = NULL;
-	init_queue(&queue);
-	Game g = {0, 0, 0, &lst_tokens, &queue};
-	
+	Game g;
+	init_game(&g);
+
 	int check = 0;
 	
 	int mousex, mousey;
@@ -23,19 +55,18 @@ int main(void) {
 	Token *token_clique;
 	int attend_clique = 0;
 	
-	window_open(sizex, sizey); printf("OK Start...\n");
+	window_open(sizex, sizey);
 	
 	struct timeval debut;
 	gettimeofday(&debut, NULL);
 	MLV_change_frame_rate(FRAME_RATE);
 	MLV_Event event;
 	MLV_Button_state button;
-	
 	/* Boucle principale */
 	while (time_usec(debut) < DUREE_MAX) {
 		
 		g.timer = time_usec(debut);
-		refresh_screen(sizex, sizey, g, cible);		
+		refresh_screen(sizex, sizey, g, cible);
 
 		/* Gestion de la file d'évènement */
 		do {
@@ -93,6 +124,9 @@ int main(void) {
 	}
 	
 	printf("\n--GAME OVER--\nScore final = %d\n\n", g.score);
+
+	free_game(&g);
+	MLV_free_window();
 
     return 0;
 }

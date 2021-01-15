@@ -44,4 +44,6 @@ typedef struct game{
     Liste* queue;
 }Game;
 
+int game_loop(void);
+
 #endif
