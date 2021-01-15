@@ -73,10 +73,14 @@ int game_loop(Game *game) {
 					if(game->nb_tokens < MAX_TOKENS)
 						switch(button_add_check(cible)) {
 							case 1 : 
-								add_left(game->queue, game->lst_tokens); 
+								if (add_left(game->queue, game->lst_tokens) != 1) {
+									return 0;
+								}
 								break;
 							case 2 : 
-								add_right(game->queue, game->lst_tokens); 
+								if (add_right(game->queue, game->lst_tokens) != 1) {
+									return 0;
+								}
 								break;
 						}
 					
@@ -128,5 +132,5 @@ int game_loop(Game *game) {
 	
 	printf("\n--GAME OVER--\nScore final = %d\n\n", game->score);
 
-    return 0;
+    return 1;
 }

@@ -85,7 +85,8 @@ void game_free(Game *game);
 
 /**
  * Contient la boucle principale du jeu
- * @return game adresse vers une partie
+ * @param game adresse vers une partie
+ * @return 0 en cas d'erreur, 1 sinon
  */
 int game_loop(Game *game);
 
