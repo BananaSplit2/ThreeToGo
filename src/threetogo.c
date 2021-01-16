@@ -26,7 +26,7 @@ int game_init(Game *game) {
 	*(game->lst_tokens) = NULL;
 	game->nb_tokens = 0;
 	game->score = 0;
-	game->combo = 1;
+	game->combo = 0;
 	game->timer = 0;
 
 	return 1;
@@ -41,9 +41,10 @@ void game_free(Game *game) {
 	game->lst_tokens = NULL;
 }
 
-int game_loop(Game *game, MLV_Image *images[], MLV_Font *police) {
+int game_loop(Game *game, MLV_Image *images[], MLV_Font *police, MLV_Sound *sounds[]) {
 	int check = 0;
 	int point_gain = 0;
+	int move_done = 0;
 	
 	int mousex, mousey; /* Stocke des coordonnées de clic */
 	Case cible = {0, 0}, ciblebis; /* Stocke des coordonées de case */
@@ -78,11 +79,13 @@ int game_loop(Game *game, MLV_Image *images[], MLV_Font *police) {
 								if (add_left(game->queue, game->lst_tokens) != 1) {
 									return 0;
 								}
+								move_done = 1;
 								break;
 							case 2 : 
 								if (add_right(game->queue, game->lst_tokens) != 1) {
 									return 0;
 								}
+								move_done = 1;
 								break;
 						}
 					
@@ -107,10 +110,12 @@ int game_loop(Game *game, MLV_Image *images[], MLV_Font *police) {
 						/* Choix du haut : on décale les formes sur la gauche */
 						if (ciblebis.lig == cible.lig - 1) {
 							shift_commoncolor_left(game->lst_tokens, token_clique);
+							move_done = 1;
 						}
 						/* Choix du bas : on décale les couleurs sur la gauche */
 						else if (ciblebis.lig == cible.lig + 1) {
 							shift_commonshape_left(game->lst_tokens, token_clique);
+							move_done = 1;
 						}
 					}
 					cible = mouse_to_square(0, 0);
@@ -118,17 +123,48 @@ int game_loop(Game *game, MLV_Image *images[], MLV_Font *police) {
 				}
 
 				/* Vérification des combinaisons */
-				point_gain = check_combinations(game->lst_tokens, game->combo);
+				if (move_done == 1) {
+					point_gain = check_combinations(game->lst_tokens, game->combo + 1);
 
-				if (point_gain == 0) {
-					game->combo = 1;
-				}
-				else {
-					game->combo += 1;
-				}
+					if (point_gain == 0) {
+						game->combo = 0;
+					}
+					else {
+						game->combo += 1;
+						switch (game->combo) {
+							case 2:
+								MLV_play_sound(sounds[0], 1.0);
+								break;
+							case 3:
+								MLV_play_sound(sounds[1], 1.0);
+								break;
+							case 4:
+								MLV_play_sound(sounds[2], 1.0);
+								break;
+							case 5:
+								MLV_play_sound(sounds[3], 1.0);
+								break;
+							case 6:
+								MLV_play_sound(sounds[4], 1.0);
+								break;
+							case 7:
+								MLV_play_sound(sounds[5], 1.0);
+								break;
+						}
+					}
 
-				game->score += point_gain;
-				game->nb_tokens = length(*(game->lst_tokens));
+					if (game->score == 0 && point_gain > 0) {
+						MLV_play_sound(sounds[6], 1.0);
+					}
+					else if (game->combo < 2 && point_gain >= 1000) {
+						MLV_play_sound(sounds[7], 1.0);
+					}
+
+					game->score += point_gain;
+					game->nb_tokens = length(*(game->lst_tokens));
+					move_done = 0;
+				}
+				
 
 			}
 		} while (event != MLV_NONE);

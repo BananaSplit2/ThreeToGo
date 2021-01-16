@@ -33,7 +33,7 @@ int images_init(MLV_Image *images[]) {
 
 	/* Vérification du chargement des images */
 	int i;
-	for (i = 0 ; i < 19 ; i++) {
+	for (i = 0 ; i < 22 ; i++) {
 		if (images[i] == NULL) {
 			return 0;
 		}
@@ -54,10 +54,38 @@ int images_init(MLV_Image *images[]) {
 	return 22;
 }
 
+int sons_init(MLV_Sound *sons[]) {
+	sons[0] = MLV_load_sound("assets/doublekill.wav");
+	sons[1] = MLV_load_sound("assets/triplekill.wav");
+	sons[2] = MLV_load_sound("assets/multikill.wav");
+	sons[3] = MLV_load_sound("assets/megakill.wav");
+	sons[4] = MLV_load_sound("assets/ultrakill.wav");
+	sons[5] = MLV_load_sound("assets/monsterkill.wav");
+	sons[6] = MLV_load_sound("assets/firstblood.wav");
+	sons[7] = MLV_load_sound("assets/godlike.wav");
+
+	/* Vérification du chargement des images */
+	int i;
+	for (i = 0 ; i < 8 ; i++) {
+		if (sons[i] == NULL) {
+			return 0;
+		}
+	}
+
+	return 8;
+}
+
 void images_free(MLV_Image *images[], int taille) {
 	int i;
 	for (i = 0 ; i < taille ; i++) {
 		MLV_free_image(images[i]);
+	}
+}
+
+void sons_free(MLV_Sound *sons[], int taille) {
+	int i;
+	for (i = 0 ; i < taille ; i++) {
+		MLV_free_sound(sons[i]);
 	}
 }
 
@@ -188,11 +216,11 @@ int button_add_check(Case cible) {
 	if(cible.lig == 3) {
 		
 		/**bouton ajout à gauche**/
-		if(cible.col > 1 && cible.col < 5)
+		if(cible.col > 2 && cible.col < 6)
 			return 1;
 		
 		/**bouton ajout à droite**/
-		if(cible.col > MAX_TOKENS - 6 && cible.col < MAX_TOKENS - 2)
+		if(cible.col > MAX_TOKENS - 7 && cible.col < MAX_TOKENS - 3)
 			return 2;
 	}
 	return 0;
@@ -242,12 +270,15 @@ void token_select_draw(Case cible, Liste lst_tokens, int nb_tokens, int position
 	}
 }
 
-void score_cat(char* message, int score) {
-	char score_str[20];
+void score_to_str(char* message, int score) {
 	sprintf(message, "%d", score);
 }
 
-void timer_cat(char* message, int timer) {
+void combo_to_str(char *dest, int combo) {
+	sprintf(dest, "x%d", combo);
+}
+
+void timer_to_str(char* message, int timer) {
 	/* Reinitialisation de message */
 	message[0] = '\0';
 
@@ -294,8 +325,8 @@ void refresh_screen(Game g, Case cible, MLV_Image *images[], MLV_Font *police) {
 	/* Affichage du fond */
 	MLV_draw_image(images[2], 0, 0);
 
-	Case origin = {2, 1}, caseg = {2, 3}, cased = {SIZEX/RESO - 5, 3};
-	char message_s[100] = "", message_t[20] = "";
+	Case origin = {2, 1}, caseg = {3, 3}, cased = {10, 3};
+	char message_s[100] = "", message_t[20] = "", message_c[20] = "";
 	int timer_int = g.timer;
 	
 	/**dessin de la queue et du cadre de sélection de l'élément en attente**/
@@ -315,10 +346,16 @@ void refresh_screen(Game g, Case cible, MLV_Image *images[], MLV_Font *police) {
 	int position = token_select_check(g.nb_tokens, cible, *g.lst_tokens);
 	token_select_draw(cible, *g.lst_tokens, g.nb_tokens, position, images);
 	
-	/**dessin des informations de l'interface**/
+	/**dessin du score et du combo**/
 	MLV_draw_image(images[19], RESO*4, RESO*7);
-	score_cat(message_s, g.score);
+	score_to_str(message_s, g.score);
 	MLV_draw_text_box_with_font(RESO*7, RESO*7, RESO*5, RESO, message_s, police, 1,
+								MLV_COLOR_CLEAR, MLV_COLOR_WHITE, MLV_COLOR_CLEAR,
+								MLV_TEXT_CENTER, MLV_HORIZONTAL_CENTER, MLV_VERTICAL_CENTER);
+
+	MLV_draw_image(images[21], RESO*4, RESO*8);
+	combo_to_str(message_c, g.combo);
+	MLV_draw_text_box_with_font(RESO*7, RESO*8, RESO*5, RESO, message_c, police, 1,
 								MLV_COLOR_CLEAR, MLV_COLOR_WHITE, MLV_COLOR_CLEAR,
 								MLV_TEXT_CENTER, MLV_HORIZONTAL_CENTER, MLV_VERTICAL_CENTER);
 	
@@ -327,7 +364,7 @@ void refresh_screen(Game g, Case cible, MLV_Image *images[], MLV_Font *police) {
 	
 	MLV_draw_image(images[20], RESO*14, 0);
 	clock_draw(g.timer);
-	timer_cat(message_t, timer_int);
+	timer_to_str(message_t, timer_int);
 	MLV_draw_text_box_with_font(RESO*14, RESO*2, RESO*2, RESO, message_t, police, 1,
 								MLV_COLOR_CLEAR, MLV_COLOR_WHITE, MLV_COLOR_CLEAR,
 								MLV_TEXT_CENTER, MLV_HORIZONTAL_CENTER, MLV_VERTICAL_CENTER);

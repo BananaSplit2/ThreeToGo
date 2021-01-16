@@ -9,6 +9,7 @@
 #include <sys/time.h>
 #include "MLV/MLV_image.h"
 #include "MLV/MLV_text.h"
+#include "MLV/MLV_audio.h"
 
 #define MLV_COLOR_CLEAR MLV_rgba(255,255,255,0)
 
@@ -25,7 +26,11 @@ typedef struct caseg{
 
 int images_init(MLV_Image *images[]);
 
+int sons_init(MLV_Sound *sons[]);
+
 void images_free(MLV_Image *images[], int taille);
+
+void sons_free(MLV_Sound *sons[], int taille);
 
 /** 
  * Transforme le pixel d'un clic de souris en coordonnées de case 
@@ -94,18 +99,25 @@ int token_select_check(int nb_tokens, Case cible, Liste lst_tokens);
 void token_select_draw(Case cible, Liste lst_tokens, int nb_tokens, int position, MLV_Image *images[]);
 
 /** 
- * Concatène le score à la fin du message 
+ * Transforme le score en une chaine de caractères
  * @param message chaîne de caractères
  * @param score entier valeur du score
  */
-void score_cat(char* message, int score);
+void score_to_str(char* message, int score);
 
 /** 
- * Concatène le timer à la fin du message 
+ * Transforme le timer en une chaine de caractères
  * @param message chaîne de caractères
  * @param timer entier valeur du timer
  */
-void timer_cat(char* message, int timer);
+void timer_to_str(char* message, int timer);
+
+/** 
+ * Transforme le combo en une chaine de caractères
+ * @param message chaîne de caractères
+ * @param timer entier valeur du timer
+ */
+void combo_to_str(char *dest, int combo);
 
 /** 
  * Renvoie le float de l'interval écoulé entre debut et maintenant 

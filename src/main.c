@@ -11,6 +11,10 @@ int main(void) {
     /* Initialisation de la librarie MLV */
     window_open(SIZEX, SIZEY);
     MLV_change_frame_rate(FRAME_RATE);
+    if (MLV_init_audio()) {
+        fprintf(stderr, "L'infrasctructure audio de la librairie MLV ne s'est pas initialisé\n");
+        return 1;
+    }
 
     /* Initialisation des images */
     MLV_Image *images[30];
@@ -28,6 +32,14 @@ int main(void) {
         return 1;
     }
 
+    /* Initialisation du son */
+    MLV_Sound* sounds[10];
+    int nb_sons = sons_init(sounds);
+    if (nb_sons == 0) {
+        printf("Une erreur inattendue est survenue pendant le chargement des sons\n");
+        return 1;
+    }
+
     /* Initialisation de la partie */
     Game game;
     if (game_init(&game) != 1) {
@@ -36,7 +48,7 @@ int main(void) {
     }
 
     /* Boucle principale */
-    if (game_loop(&game, images, police) != 1) {
+    if (game_loop(&game, images, police, sounds) != 1) {
         printf("Une erreur inattendue est survenue pendant l'exécution du programme\n");
         return 1;
     }
@@ -44,6 +56,7 @@ int main(void) {
     /* Libération de la mémoire */
     game_free(&game);
     images_free(images, nb_images);
+    sons_free(sounds, nb_sons);
     MLV_free_font(police);
     MLV_free_window();
 
