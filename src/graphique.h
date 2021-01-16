@@ -8,6 +8,9 @@
 
 #include <sys/time.h>
 #include "MLV/MLV_image.h"
+#include "MLV/MLV_text.h"
+
+#define MLV_COLOR_CLEAR MLV_rgba(255,255,255,0)
 
 /** Taille d'une case en pixels */
 #define RESO (SIZEX/MAX_TOKENS)
@@ -43,21 +46,24 @@ void window_open(int larg, int haut);
  * Dessine un token de forme et couleur donnés 
  * @param t structure Token à dessiner
  * @param c structure Case où dessiner
+ * @param images liste des images chargées
  */
-void token_draw(Token t, Case c);
+void token_draw(Token t, Case c, MLV_Image *images[]);
 
 /** 
  * Dessine une liste de tokens sur une ligne
  * @param lst_tokens structure Liste de tokens à dessiner
  * @param nb_tokens entier nombre à dessiner
  * @param cible structure Case où dessiner
+ * @param images liste des images chargées
  */
-void token_draw_list(Liste lst_tokens, int nb_tokens, Case cible);
+void token_draw_list(Liste lst_tokens, int nb_tokens, Case cible, MLV_Image *images[]);
 
 /** 
  * Dessine un bouton avec une flèche dans la direction voulue
  * @param cible structure Case où dessiner
  * @param dir caractère
+ * @param images liste des images chargées
  */
 void button_add_draw(Case cible, char dir, MLV_Image *images[]) ;
 
@@ -83,8 +89,9 @@ int token_select_check(int nb_tokens, Case cible, Liste lst_tokens);
  * @param lst_tokens structure Liste des tokens alignés
  * @param nb_tokens entier du nombre de tokens alignés
  * @param position entier du n-ième token sélectionné
+ * @param images liste des images chargées
  */
-void token_select_draw(Case cible, Liste lst_tokens, int nb_tokens, int position);
+void token_select_draw(Case cible, Liste lst_tokens, int nb_tokens, int position, MLV_Image *images[]);
 
 /** 
  * Concatène le score à la fin du message 
@@ -111,14 +118,15 @@ float time_usec(struct timeval debut);
  * Rafraichit l'affichage de base du jeu 
  * @param g structure Game des paramètres de la partie
  * @param cible structure Case de la case cliquée en dernier
+ * @param images liste des images chargées
  */
-void refresh_screen(Game g, Case cible, MLV_Image *images[]);
+void refresh_screen(Game g, Case cible, MLV_Image *images[], MLV_Font *police);
 
 /** 
  * Dessine une horloge pour une certaine durée 
  * @param cible structure Case où dessiner
  * @param duree flottant représentant la durée écoulée (en secondes)
  */
-void clock_draw(Case cible, float duree);
+void clock_draw(float duree);
 
 #endif

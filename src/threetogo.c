@@ -26,6 +26,7 @@ int game_init(Game *game) {
 	*(game->lst_tokens) = NULL;
 	game->nb_tokens = 0;
 	game->score = 0;
+	game->combo = 1;
 	game->timer = 0;
 
 	return 1;
@@ -40,8 +41,9 @@ void game_free(Game *game) {
 	game->lst_tokens = NULL;
 }
 
-int game_loop(Game *game, MLV_Image *images[]) {
+int game_loop(Game *game, MLV_Image *images[], MLV_Font *police) {
 	int check = 0;
+	int point_gain = 0;
 	
 	int mousex, mousey; /* Stocke des coordonnées de clic */
 	Case cible = {0, 0}, ciblebis; /* Stocke des coordonées de case */
@@ -116,21 +118,28 @@ int game_loop(Game *game, MLV_Image *images[]) {
 				}
 
 				/* Vérification des combinaisons */
-				game->score += check_combinations(game->lst_tokens, 1);
+				point_gain = check_combinations(game->lst_tokens, game->combo);
+
+				if (point_gain == 0) {
+					game->combo = 1;
+				}
+				else {
+					game->combo += 1;
+				}
+
+				game->score += point_gain;
 				game->nb_tokens = length(*(game->lst_tokens));
+
 			}
 		} while (event != MLV_NONE);
 
 		/* Rafraichissement de l'écran */
-		refresh_screen(*game, cible, images); 
+		refresh_screen(*game, cible, images, police); 
 		MLV_actualise_window();
 		MLV_delay_according_to_frame_rate();
 
 		/* Met à jour le timer de la partie */
 		game->timer = time_usec(debut); 
 	}
-	
-	printf("\n--GAME OVER--\nScore final = %d\n\n", game->score);
-
     return 1;
 }

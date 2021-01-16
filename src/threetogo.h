@@ -7,6 +7,7 @@
 #define THREETOGO_H
 
 #include "MLV/MLV_image.h"
+#include "MLV/MLV_text.h"
 
 /** Entier correspondant à la couleur rouge */
 #define RED 0
@@ -66,6 +67,7 @@ typedef Token *Liste;
  */
 typedef struct game{
     int score; /**< Score de la partie */
+    int combo; /**< Combo actuel */
     float timer; /**< Timer de la partie */
     int nb_tokens; /**< Nombre de tokens dans la liste principale */
     Liste* lst_tokens; /**< Liste principale de tokens */
@@ -90,7 +92,7 @@ void game_free(Game *game);
  * @param game adresse vers une partie
  * @return 0 en cas d'erreur, 1 sinon
  */
-int game_loop(Game *game, MLV_Image *images[]);
+int game_loop(Game *game, MLV_Image *images[], MLV_Font *police);
 
 
 #endif
