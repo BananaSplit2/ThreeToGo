@@ -1,5 +1,4 @@
 #include "audio.h"
-#include "threetogo.h"
 
 int sons_init(MLV_Sound *sons[]) {
 	sons[0] = MLV_load_sound("assets/doublekill.wav");
