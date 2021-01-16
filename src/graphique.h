@@ -9,7 +9,6 @@
 #include <sys/time.h>
 #include "MLV/MLV_image.h"
 #include "MLV/MLV_text.h"
-#include "MLV/MLV_audio.h"
 
 #define MLV_COLOR_CLEAR MLV_rgba(255,255,255,0)
 
@@ -26,11 +25,7 @@ typedef struct caseg{
 
 int images_init(MLV_Image *images[]);
 
-int sons_init(MLV_Sound *sons[]);
-
 void images_free(MLV_Image *images[], int taille);
-
-void sons_free(MLV_Sound *sons[], int taille);
 
 /** 
  * Transforme le pixel d'un clic de souris en coordonnées de case 

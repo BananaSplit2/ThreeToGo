@@ -54,38 +54,10 @@ int images_init(MLV_Image *images[]) {
 	return 22;
 }
 
-int sons_init(MLV_Sound *sons[]) {
-	sons[0] = MLV_load_sound("assets/doublekill.wav");
-	sons[1] = MLV_load_sound("assets/triplekill.wav");
-	sons[2] = MLV_load_sound("assets/multikill.wav");
-	sons[3] = MLV_load_sound("assets/megakill.wav");
-	sons[4] = MLV_load_sound("assets/ultrakill.wav");
-	sons[5] = MLV_load_sound("assets/monsterkill.wav");
-	sons[6] = MLV_load_sound("assets/firstblood.wav");
-	sons[7] = MLV_load_sound("assets/godlike.wav");
-
-	/* Vérification du chargement des images */
-	int i;
-	for (i = 0 ; i < 8 ; i++) {
-		if (sons[i] == NULL) {
-			return 0;
-		}
-	}
-
-	return 8;
-}
-
 void images_free(MLV_Image *images[], int taille) {
 	int i;
 	for (i = 0 ; i < taille ; i++) {
 		MLV_free_image(images[i]);
-	}
-}
-
-void sons_free(MLV_Sound *sons[], int taille) {
-	int i;
-	for (i = 0 ; i < taille ; i++) {
-		MLV_free_sound(sons[i]);
 	}
 }
 

@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wfatal-errors 
 LDFLAGS = -lm -lMLV
-OBJFILES = src/token.o src/moteur.o src/graphique.o src/threetogo.o src/main.o
+OBJFILES = src/token.o src/moteur.o src/graphique.o src/audio.o src/threetogo.o src/main.o
 TARGET = threetogo
 
 all: $(TARGET)
@@ -20,6 +20,9 @@ src/moteur.o : src/moteur.c src/moteur.h src/token.h src/threetogo.h
 
 src/threetogo.o : src/threetogo.c src/threetogo.h src/token.h src/graphique.h src/moteur.h src/token.h
 	$(CC) $(CFLAGS) -o src/threetogo.o -c src/threetogo.c $(LDFLAGS)
+
+src/audio.o : src/audio.c src/audio.h
+	$(CC) $(CFLAGS) -o src/audio.o -c src/audio.c $(LDFLAGS)
 
 clean:
 	rm -f $(OBJFILES) $(TARGET) *~

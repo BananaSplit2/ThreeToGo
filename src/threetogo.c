@@ -5,6 +5,7 @@
 #include "graphique.h"
 #include "moteur.h"
 #include "token.h"
+#include "audio.h"
 
 int game_init(Game *game) {
 	/* Allocations des listes */
@@ -126,39 +127,7 @@ int game_loop(Game *game, MLV_Image *images[], MLV_Font *police, MLV_Sound *soun
 				if (move_done == 1) {
 					point_gain = check_combinations(game->lst_tokens, game->combo + 1);
 
-					if (point_gain == 0) {
-						game->combo = 0;
-					}
-					else {
-						game->combo += 1;
-						switch (game->combo) {
-							case 2:
-								MLV_play_sound(sounds[0], 1.0);
-								break;
-							case 3:
-								MLV_play_sound(sounds[1], 1.0);
-								break;
-							case 4:
-								MLV_play_sound(sounds[2], 1.0);
-								break;
-							case 5:
-								MLV_play_sound(sounds[3], 1.0);
-								break;
-							case 6:
-								MLV_play_sound(sounds[4], 1.0);
-								break;
-							case 7:
-								MLV_play_sound(sounds[5], 1.0);
-								break;
-						}
-					}
-
-					if (game->score == 0 && point_gain > 0) {
-						MLV_play_sound(sounds[6], 1.0);
-					}
-					else if (game->combo < 2 && point_gain >= 1000) {
-						MLV_play_sound(sounds[7], 1.0);
-					}
+					play_sound_after_move(game, point_gain, sounds);
 
 					game->score += point_gain;
 					game->nb_tokens = length(*(game->lst_tokens));

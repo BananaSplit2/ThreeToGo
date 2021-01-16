@@ -2,6 +2,7 @@
 #include <time.h>
 #include "threetogo.h"
 #include "graphique.h"
+#include "audio.h"
 #include "MLV/MLV_all.h"
 
 int main(void) {
