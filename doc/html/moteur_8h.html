@@ -106,8 +106,8 @@ Fonctions</h2></td></tr>
 <tr class="separator:aa3681801da9f818d1db5afc9c9e77d3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af9e95c3ab1bfe3dc70a91feebfc60eee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moteur_8h.html#af9e95c3ab1bfe3dc70a91feebfc60eee">add_right</a> (<a class="el" href="threetogo_8h.html#a976a52d066ba7588a35e660807a4dd75">Liste</a> *queue, <a class="el" href="threetogo_8h.html#a976a52d066ba7588a35e660807a4dd75">Liste</a> *tokens)</td></tr>
 <tr class="separator:af9e95c3ab1bfe3dc70a91feebfc60eee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a55eddddc44f7a8157dff2f3e0ad8ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moteur_8h.html#a2a55eddddc44f7a8157dff2f3e0ad8ca">check_combinations</a> (<a class="el" href="threetogo_8h.html#a976a52d066ba7588a35e660807a4dd75">Liste</a> *lst)</td></tr>
-<tr class="separator:a2a55eddddc44f7a8157dff2f3e0ad8ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18d0828d66cae300623839c88c9f1c8b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moteur_8h.html#a18d0828d66cae300623839c88c9f1c8b">check_combinations</a> (<a class="el" href="threetogo_8h.html#a976a52d066ba7588a35e660807a4dd75">Liste</a> *lst, int mul)</td></tr>
+<tr class="separator:a18d0828d66cae300623839c88c9f1c8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15496a089dce7b6203187f454ada1793"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moteur_8h.html#a15496a089dce7b6203187f454ada1793">shift_commonshape_left</a> (<a class="el" href="threetogo_8h.html#a976a52d066ba7588a35e660807a4dd75">Liste</a> *lst, <a class="el" href="threetogo_8h.html#aa045e14e6c37e43b762ccba9c3ed6d9e">Token</a> *tok)</td></tr>
 <tr class="separator:a15496a089dce7b6203187f454ada1793"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6716eac7372d07d281fc4c3b05a3f0fc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="moteur_8h.html#a6716eac7372d07d281fc4c3b05a3f0fc">shift_commoncolor_left</a> (<a class="el" href="threetogo_8h.html#a976a52d066ba7588a35e660807a4dd75">Liste</a> *lst, <a class="el" href="threetogo_8h.html#aa045e14e6c37e43b762ccba9c3ed6d9e">Token</a> *tok)</td></tr>
@@ -204,8 +204,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2a55eddddc44f7a8157dff2f3e0ad8ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a55eddddc44f7a8157dff2f3e0ad8ca">&#9670;&nbsp;</a></span>check_combinations()</h2>
+<a id="a18d0828d66cae300623839c88c9f1c8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18d0828d66cae300623839c88c9f1c8b">&#9670;&nbsp;</a></span>check_combinations()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,12 +214,28 @@ Fonctions</h2></td></tr>
           <td class="memname">int check_combinations </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="threetogo_8h.html#a976a52d066ba7588a35e660807a4dd75">Liste</a> *&#160;</td>
-          <td class="paramname"><em>lst</em></td><td>)</td>
+          <td class="paramname"><em>lst</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>mul</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Cherche les chaines de plus de 3 tokens consécutifs d'une même couleur ou forme, les retire et renvoie le score associé aux différentes chaines retirées </p>
+<p>Cherche les chaines de plus de 3 tokens consécutifs d'une même couleur ou forme, les retire et renvoie le score associé aux différentes chaines retirées </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lst</td><td>liste de tokens </td></tr>
+    <tr><td class="paramname">mul</td><td>multiplicateur du score renvoyé </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -77,8 +77,20 @@ typedef struct game{
     Liste* queue; /**< Queue contenant les prochains tokens à être ajoutés */
 }Game;
 
+/**
+ * Affiche l'écran titre avec les high scores et attends un clic avant de continuer
+ * @param images liste des images chargées
+ * @param police police d'écriture
+ */
 int title_screen(MLV_Image *images[], MLV_Font *police);
 
+/**
+ * Affiche l'écran de fin avec le score final et attends un clic avant de continuer.
+ * Vérifie également si un nouveau high score a été effectué, et l'enregistre dans le cas échéant.
+ * @param game adresse vers la partie
+ * @param images liste des images chargées
+ * @param police police d'écriture
+ */
 int game_over(Game *game, MLV_Image *images[], MLV_Font *police);
 
 /**
@@ -97,6 +109,9 @@ void game_free(Game *game);
 /**
  * Contient la boucle principale du jeu
  * @param game adresse vers une partie
+ * @param images liste des images
+ * @param police police d'écriture
+ * @param sounds liste des sons
  * @return 0 en cas d'erreur, 1 sinon
  */
 int game_loop(Game *game, MLV_Image *images[], MLV_Font *police, MLV_Sound *sounds[]);

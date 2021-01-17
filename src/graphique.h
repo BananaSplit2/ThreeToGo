@@ -9,6 +9,7 @@
 #include "MLV/MLV_image.h"
 #include "MLV/MLV_text.h"
 
+/** Définition d'une couleur transparente */
 #define MLV_COLOR_CLEAR MLV_rgba(255,255,255,0)
 
 /** Constante mathématique pi */
@@ -20,8 +21,18 @@ typedef struct caseg{
     int lig; /**< Ligne */
 }Case;
 
+/**
+ * Charge toutes les images nécessaires au fonctionnement du jeu
+ * @param images tableau ou stocker les adresse vers les images chargées
+ * @return 1 si tout s'est bien passé, 0 sinon
+ */
 int images_init(MLV_Image *images[]);
 
+/**
+ * Libère toutes les images chargées par le jeu
+ * @param images tableau d'images chargées
+ * @param taille taille du tableau d'images
+ */
 void images_free(MLV_Image *images[], int taille);
 
 /** 
@@ -106,8 +117,8 @@ void timer_to_str(char* message, int timer);
 
 /** 
  * Transforme le combo en une chaine de caractères
- * @param message chaîne de caractères
- * @param timer entier valeur du timer
+ * @param dest chaîne de caractères
+ * @param combo combo actuel
  */
 void combo_to_str(char *dest, int combo);
 
@@ -123,12 +134,12 @@ float time_usec(struct timeval debut);
  * @param g structure Game des paramètres de la partie
  * @param cible structure Case de la case cliquée en dernier
  * @param images liste des images chargées
+ * @param police police d'écriture
  */
 void refresh_screen(Game g, Case cible, MLV_Image *images[], MLV_Font *police);
 
 /** 
- * Dessine une horloge pour une certaine durée 
- * @param cible structure Case où dessiner
+ * Dessine une l'aiguille de l'horloge
  * @param duree flottant représentant la durée écoulée (en secondes)
  */
 void clock_draw(float duree);

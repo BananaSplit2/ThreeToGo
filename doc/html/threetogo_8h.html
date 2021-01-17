@@ -76,7 +76,17 @@ $(function() {
 
 <p>Contient les fonctions permettant de faire tourner le jeu.  
 <a href="#details">Plus de détails...</a></p>
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &quot;MLV/MLV_image.h&quot;</code><br />
+<code>#include &quot;MLV/MLV_text.h&quot;</code><br />
+<code>#include &quot;MLV/MLV_audio.h&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Graphe des dépendances par inclusion de threetogo.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="threetogo_8h__incl.png" border="0" usemap="#src_2threetogo_8h" alt=""/></div>
+<map name="src_2threetogo_8h" id="src_2threetogo_8h">
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
 Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
 <div class="dyncontent">
 <div class="center"><img src="threetogo_8h__dep__incl.png" border="0" usemap="#src_2threetogo_8hdep" alt=""/></div>
@@ -113,12 +123,14 @@ Macros</h2></td></tr>
 <tr class="separator:ae2a3be3691cdc93f4eec4da192555bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae2f99e05f64d0383aee9bd75a52c4fbb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threetogo_8h.html#ae2f99e05f64d0383aee9bd75a52c4fbb">FRAME_RATE</a>&#160;&#160;&#160;30</td></tr>
 <tr class="separator:ae2f99e05f64d0383aee9bd75a52c4fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d6d12a6ee0d7d77f3f180ed1b2a1e22"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threetogo_8h.html#a3d6d12a6ee0d7d77f3f180ed1b2a1e22">SIZEX</a>&#160;&#160;&#160;1000</td></tr>
+<tr class="memitem:a3d6d12a6ee0d7d77f3f180ed1b2a1e22"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threetogo_8h.html#a3d6d12a6ee0d7d77f3f180ed1b2a1e22">SIZEX</a>&#160;&#160;&#160;1600</td></tr>
 <tr class="separator:a3d6d12a6ee0d7d77f3f180ed1b2a1e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7e1991fcd344daa8c9e423cfd3481a8c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threetogo_8h.html#a7e1991fcd344daa8c9e423cfd3481a8c">SIZEY</a>&#160;&#160;&#160;500</td></tr>
+<tr class="memitem:a7e1991fcd344daa8c9e423cfd3481a8c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threetogo_8h.html#a7e1991fcd344daa8c9e423cfd3481a8c">SIZEY</a>&#160;&#160;&#160;((9*<a class="el" href="threetogo_8h.html#a3d6d12a6ee0d7d77f3f180ed1b2a1e22">SIZEX</a>)/16)</td></tr>
 <tr class="separator:a7e1991fcd344daa8c9e423cfd3481a8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09886d6ba96e67553bf3c49ed8ade975"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threetogo_8h.html#a09886d6ba96e67553bf3c49ed8ade975">MAX_TOKENS</a>&#160;&#160;&#160;16</td></tr>
 <tr class="separator:a09886d6ba96e67553bf3c49ed8ade975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5d065b74f0392b75a4443123049b27d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threetogo_8h.html#af5d065b74f0392b75a4443123049b27d">RESO</a>&#160;&#160;&#160;(<a class="el" href="threetogo_8h.html#a3d6d12a6ee0d7d77f3f180ed1b2a1e22">SIZEX</a>/<a class="el" href="threetogo_8h.html#a09886d6ba96e67553bf3c49ed8ade975">MAX_TOKENS</a>)</td></tr>
+<tr class="separator:af5d065b74f0392b75a4443123049b27d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af8d49c3150af0da0930065b8263b1389"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threetogo_8h.html#af8d49c3150af0da0930065b8263b1389">DUREE_MAX</a>&#160;&#160;&#160;120</td></tr>
 <tr class="separator:af8d49c3150af0da0930065b8263b1389"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -133,12 +145,16 @@ Définitions de type</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Fonctions</h2></td></tr>
+<tr class="memitem:a129986d0b9d715d73ae1a6668603dd6a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threetogo_8h.html#a129986d0b9d715d73ae1a6668603dd6a">title_screen</a> (MLV_Image *images[], MLV_Font *police)</td></tr>
+<tr class="separator:a129986d0b9d715d73ae1a6668603dd6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac398ec856afca7be8044d7d518685e7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threetogo_8h.html#aac398ec856afca7be8044d7d518685e7">game_over</a> (<a class="el" href="threetogo_8h.html#a25fa88d8fd72fce4763106b5bfdc6c43">Game</a> *<a class="el" href="structgame.html">game</a>, MLV_Image *images[], MLV_Font *police)</td></tr>
+<tr class="separator:aac398ec856afca7be8044d7d518685e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6805fa87793e3818c1fd600c36107c51"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threetogo_8h.html#a6805fa87793e3818c1fd600c36107c51">game_init</a> (<a class="el" href="threetogo_8h.html#a25fa88d8fd72fce4763106b5bfdc6c43">Game</a> *<a class="el" href="structgame.html">game</a>)</td></tr>
 <tr class="separator:a6805fa87793e3818c1fd600c36107c51"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdc20b2499a550936dc01e125b493285"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threetogo_8h.html#afdc20b2499a550936dc01e125b493285">game_free</a> (<a class="el" href="threetogo_8h.html#a25fa88d8fd72fce4763106b5bfdc6c43">Game</a> *<a class="el" href="structgame.html">game</a>)</td></tr>
 <tr class="separator:afdc20b2499a550936dc01e125b493285"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1cfc588633c60bc6abe4464a2aa7a894"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threetogo_8h.html#a1cfc588633c60bc6abe4464a2aa7a894">game_loop</a> (<a class="el" href="threetogo_8h.html#a25fa88d8fd72fce4763106b5bfdc6c43">Game</a> *<a class="el" href="structgame.html">game</a>)</td></tr>
-<tr class="separator:a1cfc588633c60bc6abe4464a2aa7a894"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89f9bfcd769b9d6a99e1df0b363ea95d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="threetogo_8h.html#a89f9bfcd769b9d6a99e1df0b363ea95d">game_loop</a> (<a class="el" href="threetogo_8h.html#a25fa88d8fd72fce4763106b5bfdc6c43">Game</a> *<a class="el" href="structgame.html">game</a>, MLV_Image *images[], MLV_Font *police, MLV_Sound *sounds[])</td></tr>
+<tr class="separator:a89f9bfcd769b9d6a99e1df0b363ea95d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
 <div class="textblock"><p>Contient les fonctions permettant de faire tourner le jeu. </p>
@@ -263,6 +279,21 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
+<a id="af5d065b74f0392b75a4443123049b27d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5d065b74f0392b75a4443123049b27d">&#9670;&nbsp;</a></span>RESO</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RESO&#160;&#160;&#160;(<a class="el" href="threetogo_8h.html#a3d6d12a6ee0d7d77f3f180ed1b2a1e22">SIZEX</a>/<a class="el" href="threetogo_8h.html#a09886d6ba96e67553bf3c49ed8ade975">MAX_TOKENS</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Taille d'une case en pixels </p>
+
+</div>
+</div>
 <a id="a3d6d12a6ee0d7d77f3f180ed1b2a1e22"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3d6d12a6ee0d7d77f3f180ed1b2a1e22">&#9670;&nbsp;</a></span>SIZEX</h2>
 
@@ -270,7 +301,7 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SIZEX&#160;&#160;&#160;1000</td>
+          <td class="memname">#define SIZEX&#160;&#160;&#160;1600</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -285,7 +316,7 @@ Fonctions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define SIZEY&#160;&#160;&#160;500</td>
+          <td class="memname">#define SIZEY&#160;&#160;&#160;((9*<a class="el" href="threetogo_8h.html#a3d6d12a6ee0d7d77f3f180ed1b2a1e22">SIZEX</a>)/16)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -435,8 +466,8 @@ Fonctions</h2></td></tr>
 
 </div>
 </div>
-<a id="a1cfc588633c60bc6abe4464a2aa7a894"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1cfc588633c60bc6abe4464a2aa7a894">&#9670;&nbsp;</a></span>game_loop()</h2>
+<a id="a89f9bfcd769b9d6a99e1df0b363ea95d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89f9bfcd769b9d6a99e1df0b363ea95d">&#9670;&nbsp;</a></span>game_loop()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -445,12 +476,120 @@ Fonctions</h2></td></tr>
           <td class="memname">int game_loop </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="threetogo_8h.html#a25fa88d8fd72fce4763106b5bfdc6c43">Game</a> *&#160;</td>
-          <td class="paramname"><em>game</em></td><td>)</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">MLV_Image *&#160;</td>
+          <td class="paramname"><em>images</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MLV_Font *&#160;</td>
+          <td class="paramname"><em>police</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MLV_Sound *&#160;</td>
+          <td class="paramname"><em>sounds</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Contient la boucle principale du jeu </p><dl class="section return"><dt>Renvoie</dt><dd>game adresse vers une partie </dd></dl>
+<p>Contient la boucle principale du jeu </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>adresse vers une partie </td></tr>
+    <tr><td class="paramname">images</td><td>liste des images </td></tr>
+    <tr><td class="paramname">police</td><td>police d'écriture </td></tr>
+    <tr><td class="paramname">sounds</td><td>liste des sons </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Renvoie</dt><dd>0 en cas d'erreur, 1 sinon </dd></dl>
+
+</div>
+</div>
+<a id="aac398ec856afca7be8044d7d518685e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac398ec856afca7be8044d7d518685e7">&#9670;&nbsp;</a></span>game_over()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int game_over </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="threetogo_8h.html#a25fa88d8fd72fce4763106b5bfdc6c43">Game</a> *&#160;</td>
+          <td class="paramname"><em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MLV_Image *&#160;</td>
+          <td class="paramname"><em>images</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MLV_Font *&#160;</td>
+          <td class="paramname"><em>police</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Affiche l'écran de fin avec le score final et attends un clic avant de continuer. Vérifie également si un nouveau high score a été effectué, et l'enregistre dans le cas échéant. </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">game</td><td>adresse vers la partie </td></tr>
+    <tr><td class="paramname">images</td><td>liste des images chargées </td></tr>
+    <tr><td class="paramname">police</td><td>police d'écriture </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a129986d0b9d715d73ae1a6668603dd6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a129986d0b9d715d73ae1a6668603dd6a">&#9670;&nbsp;</a></span>title_screen()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int title_screen </td>
+          <td>(</td>
+          <td class="paramtype">MLV_Image *&#160;</td>
+          <td class="paramname"><em>images</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">MLV_Font *&#160;</td>
+          <td class="paramname"><em>police</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Affiche l'écran titre avec les high scores et attends un clic avant de continuer </p><dl class="params"><dt>Paramètres</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">images</td><td>liste des images chargées </td></tr>
+    <tr><td class="paramname">police</td><td>police d'écriture </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

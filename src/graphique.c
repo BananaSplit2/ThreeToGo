@@ -6,7 +6,6 @@
 #include "threetogo.h"
 #include "graphique.h"
 
-
 int images_init(MLV_Image *images[]) {
 	images[0] = MLV_load_image("assets/button_left.png");
 	images[1] = MLV_load_image("assets/button_right.png");
