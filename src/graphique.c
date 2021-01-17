@@ -30,10 +30,12 @@ int images_init(MLV_Image *images[]) {
 	images[19] = MLV_load_image("assets/score.png");
 	images[20] = MLV_load_image("assets/clock.png");
 	images[21] = MLV_load_image("assets/combo.png");
+	images[22] = MLV_load_image("assets/titlescreen.png");
+	images[23] = MLV_load_image("assets/gameover.png");
 
 	/* Vérification du chargement des images */
 	int i;
-	for (i = 0 ; i < 22 ; i++) {
+	for (i = 0 ; i < 24 ; i++) {
 		if (images[i] == NULL) {
 			return 0;
 		}
@@ -46,12 +48,14 @@ int images_init(MLV_Image *images[]) {
 	MLV_resize_image_with_proportions(images[19], RESO*8, RESO);
 	MLV_resize_image_with_proportions(images[20], RESO*2, RESO*3);
 	MLV_resize_image_with_proportions(images[21], RESO*8, RESO);
+	MLV_resize_image_with_proportions(images[22], SIZEX, SIZEY);
+	MLV_resize_image_with_proportions(images[23], SIZEX, SIZEY);
 
 	for (i = 3 ; i < 19 ; i++) {
 		MLV_resize_image(images[i], RESO, RESO);
 	}
 
-	return 22;
+	return 24;
 }
 
 void images_free(MLV_Image *images[], int taille) {

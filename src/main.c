@@ -41,16 +41,28 @@ int main(void) {
         return 1;
     }
 
+    /* Ecran titre */
+    if (title_screen(images, police) != 1) {
+        printf("Une erreur inattendue est survenue pendant le chargement de l'écran titre\n");
+        return 1;
+    }
+
     /* Initialisation de la partie */
     Game game;
     if (game_init(&game) != 1) {
-        printf("Une erreur inattendue est survenue pendant l'initialisation du programme\n");
+        printf("Une erreur inattendue est survenue pendant l'initialisation de la partie\n");
         return 1;
     }
 
     /* Boucle principale */
     if (game_loop(&game, images, police, sounds) != 1) {
         printf("Une erreur inattendue est survenue pendant l'exécution du programme\n");
+        return 1;
+    }
+
+    /* Ecran titre */
+    if (game_over(&game, images, police) != 1) {
+        printf("Une erreur inattendue est survenue pendant le chargement de l'écran de fin de partie\n");
         return 1;
     }
     

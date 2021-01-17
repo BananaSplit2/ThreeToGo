@@ -6,6 +6,89 @@
 #include "moteur.h"
 #include "token.h"
 #include "audio.h"
+#include "fileio.h"
+
+int title_screen(MLV_Image *images[], MLV_Font *police) {
+	int i, scores[5];
+	char tmp[20];
+
+	/* Lecture des high scores */
+	if (read_high_scores(scores) != 1) {
+		return 0;
+	}
+
+	MLV_draw_image(images[22], 0, 0);
+
+	for (i = 0 ; i < 5 ; i++) {
+		sprintf(tmp, "%d", scores[i]);
+		MLV_draw_text_box_with_font(RESO*5, RESO*(4+i), RESO*9, RESO, tmp, police, 1,
+								MLV_COLOR_CLEAR, MLV_COLOR_WHITE, MLV_COLOR_CLEAR,
+								MLV_TEXT_LEFT, MLV_HORIZONTAL_LEFT, MLV_VERTICAL_CENTER);
+	}
+
+	MLV_actualise_window();
+	MLV_wait_mouse(NULL, NULL);
+
+	return 1;
+}
+
+int game_over(Game *game, MLV_Image *images[], MLV_Font *police) {
+	int i, scores[5], new_high = 0;
+	char tmp[20];
+
+	/* Lecture des high scores */
+	if (read_high_scores(scores) != 1) {
+		return 0;
+	}
+
+	/* Vérification d'un new high score */
+	for (i = 0 ; i < 5 ; i++) {
+		if (game->score > scores[i]) {
+			new_high = i + 1;
+			/* Insertion du nouveau score */
+			int j;
+			/* On décale tous les scores plus bas d'un cran en arrière */
+			for (j = 4 ; j > i ; j--) {
+				scores[j] = scores[j-1];
+			}
+
+			scores[i] = game->score;
+
+			break;
+		}
+	}
+
+	/* Affichange de l'écran de fin de partie */
+	MLV_draw_image(images[23], 0, 0);
+	
+	sprintf(tmp, "%d", game->score);
+	MLV_draw_text_box_with_font(RESO*4, RESO*4, RESO*8, RESO, tmp, police, 1,
+								MLV_COLOR_CLEAR, MLV_COLOR_WHITE, MLV_COLOR_CLEAR,
+								MLV_TEXT_CENTER, MLV_HORIZONTAL_CENTER, MLV_VERTICAL_CENTER);
+	
+	/* Si nouveau high score */
+	if (new_high > 0) {
+		MLV_draw_text_box_with_font(RESO*4, RESO*5, RESO*8, RESO, "New high score!", police, 1,
+								MLV_COLOR_CLEAR, MLV_COLOR_WHITE, MLV_COLOR_CLEAR,
+								MLV_TEXT_CENTER, MLV_HORIZONTAL_CENTER, MLV_VERTICAL_CENTER);
+
+		sprintf(tmp, "Rank %d", new_high);
+		MLV_draw_text_box_with_font(RESO*4, RESO*6, RESO*8, RESO, tmp, police, 1,
+								MLV_COLOR_CLEAR, MLV_COLOR_WHITE, MLV_COLOR_CLEAR,
+								MLV_TEXT_CENTER, MLV_HORIZONTAL_CENTER, MLV_VERTICAL_CENTER);
+
+		if (write_high_scores(scores) != 1) {
+			return 0;
+		}
+	}
+
+
+	MLV_actualise_window();
+	MLV_wait_seconds(3);
+	MLV_wait_mouse(NULL, NULL);
+
+	return 1;
+}
 
 int game_init(Game *game) {
 	/* Allocations des listes */
@@ -126,6 +209,14 @@ int game_loop(Game *game, MLV_Image *images[], MLV_Font *police, MLV_Sound *soun
 				/* Vérification des combinaisons */
 				if (move_done == 1) {
 					point_gain = check_combinations(game->lst_tokens, game->combo + 1);
+
+					/* Gestion des combos */
+					if (point_gain == 0) {
+						game->combo = 0;
+					}
+					else {
+						game->combo += 1;
+					}
 
 					play_sound_after_move(game, point_gain, sounds);
 

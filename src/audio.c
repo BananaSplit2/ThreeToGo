@@ -29,36 +29,37 @@ void sons_free(MLV_Sound *sons[], int taille) {
 }
 
 void play_sound_after_move(Game *game, int point_gain, MLV_Sound *sounds[]) {
-    if (point_gain == 0) {
-        game->combo = 0;
+
+    /* Sons de combos */
+    switch (game->combo) {
+        case 2:
+            MLV_play_sound(sounds[0], 1.0);
+            break;
+        case 3:
+            MLV_play_sound(sounds[1], 1.0);
+            break;
+        case 4:
+            MLV_play_sound(sounds[2], 1.0);
+            break;
+        case 5:
+            MLV_play_sound(sounds[3], 1.0);
+            break;
+        case 6:
+            MLV_play_sound(sounds[4], 1.0);
+            break;
+        case 7:
+            MLV_play_sound(sounds[5], 1.0);
+            break;
     }
-    else {
-        game->combo += 1;
-        switch (game->combo) {
-            case 2:
-                MLV_play_sound(sounds[0], 1.0);
-                break;
-            case 3:
-                MLV_play_sound(sounds[1], 1.0);
-                break;
-            case 4:
-                MLV_play_sound(sounds[2], 1.0);
-                break;
-            case 5:
-                MLV_play_sound(sounds[3], 1.0);
-                break;
-            case 6:
-                MLV_play_sound(sounds[4], 1.0);
-                break;
-            case 7:
-                MLV_play_sound(sounds[5], 1.0);
-                break;
-        }
+    if (game->combo > 7) {
+        MLV_play_sound(sounds[5], 1.0);
     }
 
+    /* Son de la première combinaison */
     if (game->score == 0 && point_gain > 0) {
         MLV_play_sound(sounds[6], 1.0);
     }
+    /* Son en cas de coup de haute valeur */
     else if (game->combo < 2 && point_gain >= 1000) {
         MLV_play_sound(sounds[7], 1.0);
     }

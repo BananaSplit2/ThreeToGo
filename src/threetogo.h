@@ -75,6 +75,10 @@ typedef struct game{
     Liste* queue; /**< Queue contenant les prochains tokens à être ajoutés */
 }Game;
 
+int title_screen(MLV_Image *images[], MLV_Font *police);
+
+int game_over(Game *game, MLV_Image *images[], MLV_Font *police);
+
 /**
  * Initialise une partie
  * @param game adresse vers une partie
