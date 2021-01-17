@@ -9,6 +9,9 @@ all: $(TARGET)
 $(TARGET): $(OBJFILES)
 	$(CC) $(CFLAGS) -o $(TARGET) $(OBJFILES) $(LDFLAGS)
 
+src/main.o : src/main.c src/threetogo.h src/graphique.h src/audio.h
+	$(CC) $(CFLAGS) -o src/main.o -c src/main.c $(LDFLAGS)
+
 src/token.o : src/token.c src/token.h src/threetogo.h
 	$(CC) $(CFLAGS) -o src/token.o -c src/token.c $(LDFLAGS)
 

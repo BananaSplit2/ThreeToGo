@@ -2,7 +2,6 @@
  * @file
  * @brief Contient les fonctions du moteur graphique du jeu
  */
-
 #ifndef GRAPHIQUE_H
 #define GRAPHIQUE_H
 
@@ -12,8 +11,6 @@
 
 #define MLV_COLOR_CLEAR MLV_rgba(255,255,255,0)
 
-/** Taille d'une case en pixels */
-#define RESO (SIZEX/MAX_TOKENS)
 /** Constante mathématique pi */
 #define PI 3.14159265358979323846264338
 

@@ -36,6 +36,8 @@
 #define SIZEY ((9*SIZEX)/16)
 /** Nombre maximum de tokens dans la liste principale */
 #define MAX_TOKENS 16
+/** Taille d'une case en pixels */
+#define RESO (SIZEX/MAX_TOKENS)
 /** Durée d'une partie en secondes */
 #define DUREE_MAX 120
 
