@@ -194,12 +194,12 @@ int game_loop(Game *game, MLV_Image *images[], MLV_Font *police, MLV_Sound *soun
 						/* Choix du haut : on décale les formes sur la gauche */
 						if (ciblebis.lig == cible.lig - 1) {
 							shift_commoncolor_left(game->lst_tokens, token_clique);
-							move_done = 1;
+							move_done = 2;
 						}
 						/* Choix du bas : on décale les couleurs sur la gauche */
 						else if (ciblebis.lig == cible.lig + 1) {
 							shift_commonshape_left(game->lst_tokens, token_clique);
-							move_done = 1;
+							move_done = 2;
 						}
 					}
 					cible = mouse_to_square(0, 0);
@@ -207,8 +207,8 @@ int game_loop(Game *game, MLV_Image *images[], MLV_Font *police, MLV_Sound *soun
 				}
 
 				/* Vérification des combinaisons */
-				if (move_done == 1) {
-					point_gain = check_combinations(game->lst_tokens, game->combo + 1);
+				if (move_done > 0) {
+					point_gain = check_combinations(game->lst_tokens, (game->combo + 1) * move_done);
 
 					/* Gestion des combos */
 					if (point_gain == 0) {
